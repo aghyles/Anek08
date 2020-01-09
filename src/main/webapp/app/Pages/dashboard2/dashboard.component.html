@@ -26,73 +26,8 @@ l'apprentissage se focalise sur la conception de taches permettant de conduire l
 <section id="page-container">
 
     <div class="groupe">
-        <div>
-            <h2 id="page-heading">
-                <span jhiTranslate="t04JhApp.groupe.home.title">Groupes</span>
-                <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-groupe" [routerLink]="['/groupe/new']">
-                    <fa-icon [icon]="'plus'"></fa-icon>
-                    <span  jhiTranslate="t04JhApp.groupe.home.createLabel">
-            Create a new Groupe
-            </span>
-                </button>
-            </h2>
-            <jhi-alert-error></jhi-alert-error>
-            <jhi-alert></jhi-alert>
-            <br/>
-            <div class="alert alert-warning" *ngIf="groupes?.length === 0">
-                <span jhiTranslate="t04JhApp.groupe.home.notFound">No groupes found</span>
-            </div>
-            <div class="table-responsive" *ngIf="groupes?.length > 0">
-                <table class="table table-striped" aria-describedby="page-heading">
-                    <thead>
-                    <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
-                        <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-                        <th scope="col"  jhiSortBy="groupeName"><span jhiTranslate="t04JhApp.groupe.groupeName">Groupe Name</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-                        <th scope="col"  jhiSortBy="startDate"><span jhiTranslate="t04JhApp.groupe.startDate">Start Date</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-                        <th scope="col"  jhiSortBy="days"><span jhiTranslate="t04JhApp.groupe.days">Days</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-                        <th scope="col"  jhiSortBy="endDate"><span jhiTranslate="t04JhApp.groupe.endDate">End Date</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-                        <th scope="col"  jhiSortBy="saison"><span jhiTranslate="t04JhApp.groupe.saison">Saison</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-                        <th scope="col"  jhiSortBy="category"><span jhiTranslate="t04JhApp.groupe.category">Category</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-                        <th scope="col"  jhiSortBy="obs"><span jhiTranslate="t04JhApp.groupe.obs">Obs</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-                        <th scope="col"></th>
-                    </tr>
-                    </thead>
-                    <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
-                    <tr *ngFor="let groupe of groupes ;trackBy: trackId">
-                        <td><a [routerLink]="['/groupe', groupe.id, 'view' ]">{{groupe.id}}</a></td>
-                        <td>{{groupe.groupeName}}</td>
-                        <td>{{groupe.startDate | date:'medium'}}</td>
-                        <td>{{groupe.days}}</td>
-                        <td>{{groupe.endDate | date:'medium'}}</td>
-                        <td>{{groupe.saison}}</td>
-                        <td jhiTranslate="{{'t04JhApp.Category.' + groupe.category}}">{{groupe.category}}</td>
-                        <td>{{groupe.obs}}</td>
-                        <td class="text-right">
-                            <div class="btn-group">
-                                <button type="submit"
-                                        [routerLink]="['/groupe', groupe.id, 'view' ]"
-                                        class="btn btn-info btn-sm">
-                                    <fa-icon [icon]="'eye'"></fa-icon>
-                                    <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
-                                </button>
-                                <button type="submit"
-                                        [routerLink]="['/groupe', groupe.id, 'edit']"
-                                        class="btn btn-primary btn-sm">
-                                    <fa-icon [icon]="'pencil-alt'"></fa-icon>
-                                    <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
-                                </button>
-                                <button type="submit" (click)="delete(groupe)"
-                                        class="btn btn-danger btn-sm">
-                                    <fa-icon [icon]="'times'"></fa-icon>
-                                    <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
-                                </button>
-                            </div>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+
+
         <jhi-groupe ></jhi-groupe>
     </div>
 

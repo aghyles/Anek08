@@ -1,13 +1,13 @@
 import { Component, EventEmitter, forwardRef, Input, Output, ViewEncapsulation } from '@angular/core';
-
 import { fuseAnimations } from '@fuse/animations';
 import { MatColors } from '@fuse/mat-colors';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
+
 export const FUSE_MATERIAL_COLOR_PICKER_VALUE_ACCESSOR: any = {
-    provide    : NG_VALUE_ACCESSOR,
-    useExisting: forwardRef(() => FuseMaterialColorPickerComponent),
-    multi      : true
+  provide    : NG_VALUE_ACCESSOR,
+  useExisting: forwardRef(() => FuseMaterialColorPickerComponent),
+  multi      : true
 };
 
 @Component({
@@ -17,7 +17,9 @@ export const FUSE_MATERIAL_COLOR_PICKER_VALUE_ACCESSOR: any = {
     animations   : fuseAnimations,
     encapsulation: ViewEncapsulation.None,
     providers    : [FUSE_MATERIAL_COLOR_PICKER_VALUE_ACCESSOR]
+
 })
+// eslint-disable-next-line no-use-before-define
 export class FuseMaterialColorPickerComponent implements ControlValueAccessor
 {
     colors: any;
@@ -259,3 +261,4 @@ export class FuseMaterialColorPickerComponent implements ControlValueAccessor
         }
     }
 }
+
