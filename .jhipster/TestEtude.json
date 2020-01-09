@@ -1,0 +1,36 @@
+{
+    "name": "TestEtude",
+    "fields": [
+        {
+            "fieldName": "testTitle",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "levelStudy",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "average",
+            "fieldType": "Long"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "ficheTest",
+            "otherEntityRelationshipName": "testEtude",
+            "relationshipName": "ficheTest",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20191220044430",
+    "entityTableName": "test_etude",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

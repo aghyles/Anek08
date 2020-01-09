@@ -1,0 +1,109 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="t04JhApp.testNage.home.title">Test Nages</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-test-nage" [routerLink]="['/test-nage/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="t04JhApp.testNage.home.createLabel">
+            Create a new Test Nage
+            </span>
+        </button>
+    </h2>
+    <jhi-alert-error></jhi-alert-error>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="testNages?.length === 0">
+        <span jhiTranslate="t04JhApp.testNage.home.notFound">No testNages found</span>
+    </div>
+    <div class="table-responsive" *ngIf="testNages?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="testTitle"><span jhiTranslate="t04JhApp.testNage.testTitle">Test Title</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="nl50"><span jhiTranslate="t04JhApp.testNage.nl50">Nl 50</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="nl100"><span jhiTranslate="t04JhApp.testNage.nl100">Nl 100</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="nl200"><span jhiTranslate="t04JhApp.testNage.nl200">Nl 200</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="nl400"><span jhiTranslate="t04JhApp.testNage.nl400">Nl 400</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="nl800"><span jhiTranslate="t04JhApp.testNage.nl800">Nl 800</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="nl1500"><span jhiTranslate="t04JhApp.testNage.nl1500">Nl 1500</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="pap50"><span jhiTranslate="t04JhApp.testNage.pap50">Pap 50</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="pap100"><span jhiTranslate="t04JhApp.testNage.pap100">Pap 100</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="pap200"><span jhiTranslate="t04JhApp.testNage.pap200">Pap 200</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="dos50"><span jhiTranslate="t04JhApp.testNage.dos50">Dos 50</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="dos100"><span jhiTranslate="t04JhApp.testNage.dos100">Dos 100</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="dos200"><span jhiTranslate="t04JhApp.testNage.dos200">Dos 200</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="brasse50"><span jhiTranslate="t04JhApp.testNage.brasse50">Brasse 50</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="brasse100"><span jhiTranslate="t04JhApp.testNage.brasse100">Brasse 100</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="brasse200"><span jhiTranslate="t04JhApp.testNage.brasse200">Brasse 200</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="na4ge100"><span jhiTranslate="t04JhApp.testNage.na4ge100">Na 4 Ge 100</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="na4ge200"><span jhiTranslate="t04JhApp.testNage.na4ge200">Na 4 Ge 200</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="na4ge400"><span jhiTranslate="t04JhApp.testNage.na4ge400">Na 4 Ge 400</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="h1nl"><span jhiTranslate="t04JhApp.testNage.h1nl">H 1 Nl</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="autre"><span jhiTranslate="t04JhApp.testNage.autre">Autre</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="ficheTest.id"><span jhiTranslate="t04JhApp.testNage.ficheTest">Fiche Test</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let testNage of testNages ;trackBy: trackId">
+                <td><a [routerLink]="['/test-nage', testNage.id, 'view' ]">{{testNage.id}}</a></td>
+                <td>{{testNage.testTitle}}</td>
+                <td>{{testNage.nl50}}</td>
+                <td>{{testNage.nl100}}</td>
+                <td>{{testNage.nl200}}</td>
+                <td>{{testNage.nl400}}</td>
+                <td>{{testNage.nl800}}</td>
+                <td>{{testNage.nl1500}}</td>
+                <td>{{testNage.pap50}}</td>
+                <td>{{testNage.pap100}}</td>
+                <td>{{testNage.pap200}}</td>
+                <td>{{testNage.dos50}}</td>
+                <td>{{testNage.dos100}}</td>
+                <td>{{testNage.dos200}}</td>
+                <td>{{testNage.brasse50}}</td>
+                <td>{{testNage.brasse100}}</td>
+                <td>{{testNage.brasse200}}</td>
+                <td>{{testNage.na4ge100}}</td>
+                <td>{{testNage.na4ge200}}</td>
+                <td>{{testNage.na4ge400}}</td>
+                <td>{{testNage.h1nl}}</td>
+                <td>{{testNage.autre}}</td>
+                <td>
+                    <div *ngIf="testNage.ficheTest">
+                        <a [routerLink]="['/fiche-test', testNage.ficheTest?.id, 'view' ]" >{{testNage.ficheTest?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/test-nage', testNage.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/test-nage', testNage.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit" (click)="delete(testNage)"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div [hidden]="testNages?.length === 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

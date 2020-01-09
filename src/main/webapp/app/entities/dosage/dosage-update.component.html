@@ -1,0 +1,50 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-dosage-heading" jhiTranslate="t04JhApp.dosage.home.createOrEditLabel">Create or edit a Dosage</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="t04JhApp.dosage.dosageS" for="field_dosageS">Dosage S</label>
+                    <input type="text" class="form-control" name="dosageS" id="field_dosageS"
+                           formControlName="dosageS"/>
+                    <div *ngIf="editForm.get('dosageS').invalid && (editForm.get('dosageS').dirty || editForm.get('dosageS').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('dosageS').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="t04JhApp.dosage.dosagelong" for="field_dosagelong">Dosagelong</label>
+                    <input type="number" class="form-control" name="dosagelong" id="field_dosagelong"
+                           formControlName="dosagelong"/>
+                    <div *ngIf="editForm.get('dosagelong').invalid && (editForm.get('dosagelong').dirty || editForm.get('dosagelong').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('dosagelong').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('dosagelong')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

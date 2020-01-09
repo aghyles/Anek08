@@ -1,0 +1,61 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="testAutre">
+            <h2><span jhiTranslate="t04JhApp.testAutre.detail.title">Test Autre</span> {{testAutre.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="t04JhApp.testAutre.testTitle">Test Title</span></dt>
+                <dd>
+                    <span>{{testAutre.testTitle}}</span>
+                </dd>
+                <dt><span jhiTranslate="t04JhApp.testAutre.obs1">Obs 1</span></dt>
+                <dd>
+                    <span>{{testAutre.obs1}}</span>
+                </dd>
+                <dt><span jhiTranslate="t04JhApp.testAutre.obs2">Obs 2</span></dt>
+                <dd>
+                    <span>{{testAutre.obs2}}</span>
+                </dd>
+                <dt><span jhiTranslate="t04JhApp.testAutre.obs3">Obs 3</span></dt>
+                <dd>
+                    <span>{{testAutre.obs3}}</span>
+                </dd>
+                <dt><span jhiTranslate="t04JhApp.testAutre.obs4">Obs 4</span></dt>
+                <dd>
+                    <span>{{testAutre.obs4}}</span>
+                </dd>
+                <dt><span jhiTranslate="t04JhApp.testAutre.obs5">Obs 5</span></dt>
+                <dd>
+                    <span>{{testAutre.obs5}}</span>
+                </dd>
+                <dt><span jhiTranslate="t04JhApp.testAutre.obs6">Obs 6</span></dt>
+                <dd>
+                    <span>{{testAutre.obs6}}</span>
+                </dd>
+                <dt><span jhiTranslate="t04JhApp.testAutre.obs7">Obs 7</span></dt>
+                <dd>
+                    <span>{{testAutre.obs7}}</span>
+                </dd>
+                <dt><span jhiTranslate="t04JhApp.testAutre.ficheTest">Fiche Test</span></dt>
+                <dd>
+                    <div *ngIf="testAutre.ficheTest">
+                        <a [routerLink]="['/fiche-test', testAutre.ficheTest?.id, 'view']">{{testAutre.ficheTest?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/test-autre', testAutre.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

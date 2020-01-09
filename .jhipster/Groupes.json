@@ -1,0 +1,34 @@
+{
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "relationships": [
+        {
+            "relationshipName": "user",
+            "otherEntityName": "user",
+            "relationshipType": "one-to-one",
+            "otherEntityField": "login",
+            "ownerSide": true,
+            "useJPADerivedIdentifier": false,
+            "otherEntityRelationshipName": "groupes"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "groupes",
+            "fieldType": "String",
+            "fieldValidateRules": []
+        },
+        {
+            "fieldName": "saison",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20191026185733",
+    "dto": "no",
+    "searchEngine": false,
+    "service": "no",
+    "entityTableName": "groupes",
+    "databaseType": "sql",
+    "jpaMetamodelFiltering": false,
+    "pagination": "no"
+}

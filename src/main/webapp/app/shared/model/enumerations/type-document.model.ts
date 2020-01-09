@@ -1,0 +1,7 @@
+export const enum TypeDocument {
+  PHOTOS = 'PHOTOS',
+  PHOTOSPROFIL = 'PHOTOSPROFIL',
+  BIRTHACT = 'BIRTHACT',
+  TESTRESULT = 'TESTRESULT',
+  OTHER = 'OTHER'
+}

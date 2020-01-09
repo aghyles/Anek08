@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity Presence.
+    -->
+    <changeSet id="20191220044433-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="fiche_seance_id"
+                                 baseTableName="presence"
+                                 constraintName="fk_presence_fiche_seance_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="fiche_seance"/>
+
+    </changeSet>
+</databaseChangeLog>

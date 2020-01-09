@@ -1,0 +1,58 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-fiche-test-heading" jhiTranslate="t04JhApp.ficheTest.home.createOrEditLabel">Create or edit a Fiche Test</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="t04JhApp.ficheTest.typeTest" for="field_typeTest">Type Test</label>
+                    <input type="text" class="form-control" name="typeTest" id="field_typeTest"
+                           formControlName="typeTest"/>
+                    <div *ngIf="editForm.get('typeTest').invalid && (editForm.get('typeTest').dirty || editForm.get('typeTest').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('typeTest').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="t04JhApp.ficheTest.datetest" for="field_datetest">Datetest</label>
+                    <div class="d-flex">
+                        <input id="field_datetest" type="datetime-local" class="form-control" name="datetest" formControlName="datetest" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('datetest').invalid && (editForm.get('datetest').dirty || editForm.get('datetest').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('datetest').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('datetest').errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="t04JhApp.ficheTest.swimer" for="field_swimer">Swimer</label>
+                    <select class="form-control" id="field_swimer" name="swimer" formControlName="swimer">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="swimerOption.id === editForm.get('swimer').value?.id ? editForm.get('swimer').value : swimerOption" *ngFor="let swimerOption of swimers; trackBy: trackSwimerById">{{swimerOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

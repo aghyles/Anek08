@@ -1,0 +1,41 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="testEtude">
+            <h2><span jhiTranslate="t04JhApp.testEtude.detail.title">Test Etude</span> {{testEtude.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="t04JhApp.testEtude.testTitle">Test Title</span></dt>
+                <dd>
+                    <span>{{testEtude.testTitle}}</span>
+                </dd>
+                <dt><span jhiTranslate="t04JhApp.testEtude.levelStudy">Level Study</span></dt>
+                <dd>
+                    <span>{{testEtude.levelStudy}}</span>
+                </dd>
+                <dt><span jhiTranslate="t04JhApp.testEtude.average">Average</span></dt>
+                <dd>
+                    <span>{{testEtude.average}}</span>
+                </dd>
+                <dt><span jhiTranslate="t04JhApp.testEtude.ficheTest">Fiche Test</span></dt>
+                <dd>
+                    <div *ngIf="testEtude.ficheTest">
+                        <a [routerLink]="['/fiche-test', testEtude.ficheTest?.id, 'view']">{{testEtude.ficheTest?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/test-etude', testEtude.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

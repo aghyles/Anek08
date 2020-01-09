@@ -1,0 +1,77 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="swimer">
+            <h2><span jhiTranslate="t04JhApp.swimer.detail.title">Swimer</span> {{swimer.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="t04JhApp.swimer.licenceNum">Licence Num</span></dt>
+                <dd>
+                    <span>{{swimer.licenceNum}}</span>
+                </dd>
+                <dt><span jhiTranslate="t04JhApp.swimer.firstName">First Name</span></dt>
+                <dd>
+                    <span>{{swimer.firstName}}</span>
+                </dd>
+                <dt><span jhiTranslate="t04JhApp.swimer.lastName">Last Name</span></dt>
+                <dd>
+                    <span>{{swimer.lastName}}</span>
+                </dd>
+                <dt><span jhiTranslate="t04JhApp.swimer.sexe">Sexe</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'t04JhApp.Sexe.' + swimer.sexe}}">{{swimer.sexe}}</span>
+                </dd>
+                <dt><span jhiTranslate="t04JhApp.swimer.bearthday">Bearthday</span></dt>
+                <dd>
+                    <span>{{swimer.bearthday}}</span>
+                </dd>
+                <dt><span jhiTranslate="t04JhApp.swimer.phoneNumber">Phone Number</span></dt>
+                <dd>
+                    <span>{{swimer.phoneNumber}}</span>
+                </dd>
+                <dt><span jhiTranslate="t04JhApp.swimer.eMail">E Mail</span></dt>
+                <dd>
+                    <span>{{swimer.eMail}}</span>
+                </dd>
+                <dt><span jhiTranslate="t04JhApp.swimer.address">Address</span></dt>
+                <dd>
+                    <span>{{swimer.address}}</span>
+                </dd>
+                <dt><span jhiTranslate="t04JhApp.swimer.studyTime">Study Time</span></dt>
+                <dd>
+                    <span>{{swimer.studyTime}}</span>
+                </dd>
+                <dt><span jhiTranslate="t04JhApp.swimer.firstSwim">First Swim</span></dt>
+                <dd>
+                    <span>{{swimer.firstSwim}}</span>
+                </dd>
+                <dt><span jhiTranslate="t04JhApp.swimer.groupeName">Groupe Name</span></dt>
+                <dd>
+                    <span>{{swimer.groupeName}}</span>
+                </dd>
+                <dt><span jhiTranslate="t04JhApp.swimer.document">Document</span></dt>
+                <dd>
+                    <span>{{swimer.document}}</span>
+                </dd>
+                <dt><span jhiTranslate="t04JhApp.swimer.groupe">Groupe</span></dt>
+                <dd>
+                    <div *ngIf="swimer.groupe">
+                        <a [routerLink]="['/groupe', swimer.groupe?.id, 'view']">{{swimer.groupe?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/swimer', swimer.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,28 @@
+{
+  "t04JhApp": {
+    "testPhysique": {
+      "home": {
+        "title": "TestPhysiques",
+        "createLabel": "Créer un nouveau Test Physique",
+        "createOrEditLabel": "Créer ou éditer un Test Physique",
+        "notFound": "Aucun Test Physique trouvé"
+      },
+      "created": "Un nouveau Test Physique a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Test Physique avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Test Physique avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Test Physique {{ id }} ?"
+      },
+      "detail": {
+        "title": "Test Physique"
+      },
+      "testphyTitle": "Testphy Title",
+      "testPhy1": "Test Phy 1",
+      "testPhy2": "Test Phy 2",
+      "testPhy3": "Test Phy 3",
+      "testPhy4": "Test Phy 4",
+      "testPhy5": "Test Phy 5",
+      "ficheTest": "Fiche Test"
+    }
+  }
+}

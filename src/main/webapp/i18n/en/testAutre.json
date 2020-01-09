@@ -1,0 +1,30 @@
+{
+  "t04JhApp": {
+    "testAutre": {
+      "home": {
+        "title": "Test Autres",
+        "createLabel": "Create a new Test Autre",
+        "createOrEditLabel": "Create or edit a Test Autre",
+        "notFound": "No Test Autres found"
+      },
+      "created": "A new Test Autre is created with identifier {{ param }}",
+      "updated": "A Test Autre is updated with identifier {{ param }}",
+      "deleted": "A Test Autre is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Test Autre {{ id }}?"
+      },
+      "detail": {
+        "title": "Test Autre"
+      },
+      "testTitle": "Test Title",
+      "obs1": "Obs 1",
+      "obs2": "Obs 2",
+      "obs3": "Obs 3",
+      "obs4": "Obs 4",
+      "obs5": "Obs 5",
+      "obs6": "Obs 6",
+      "obs7": "Obs 7",
+      "ficheTest": "Fiche Test"
+    }
+  }
+}

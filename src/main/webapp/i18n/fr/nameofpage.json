@@ -1,0 +1,21 @@
+{
+  "nameofpage": {
+    "page": {
+      "title": "Acceuill"
+    },
+    "name": "Aveugle qui traverse une rivière à la nage : il montera là où sa tête heurtera.",
+    "description": "Seuls les poissons morts nagent dans le sens du courant.",
+    "service": {
+      "title": "Services",
+      "description": "Seuls les poissons morts nagent dans le sens du courant."
+    },
+    "portafolio": {
+      "title": "Nager",
+      "description": "Quand l'eau touche le cul, on apprend à nager."
+    },
+    "pricing": {
+      "title": "Poisson",
+      "description": " On n'apprend pas à nager à un poisson."
+    }
+  }
+}

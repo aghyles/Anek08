@@ -1,0 +1,119 @@
+{
+    "name": "MesureAnthropo",
+    "fields": [
+        {
+            "fieldName": "date",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "poids",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "stature",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "tailleAssis",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "longTronc",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "longMembreInferieurs",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "longMembreSuperieur",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "anvergureBras",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "longBras",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "longJambes",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "longPieds",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "hauteurPied",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "longMain",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "diamMain",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "diamBiacromial",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "diamBicretal",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "diamThorax",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "circThorax",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "circThoraxInspirant",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "circThoraxExpirant",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "circBrasContracte",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "circBrasDecontract",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "circCuisse",
+            "fieldType": "Long"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "swimer",
+            "otherEntityRelationshipName": "mesureAnthropo",
+            "relationshipName": "swimer",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20191220044425",
+    "entityTableName": "mesure_anthropo",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

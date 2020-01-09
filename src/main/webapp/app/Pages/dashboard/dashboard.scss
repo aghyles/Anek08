@@ -1,0 +1,180 @@
+/* ==========================================================================
+Main page styles
+========================================================================== */
+
+.hipster {
+  display: inline-block;
+  width: 347px;
+  height: 497px;
+  background: url('../../../content/images/jhipster_family_member_2.svg') no-repeat center top;
+  background-size: contain;
+}
+
+/* wait autoprefixer update to allow simple generation of high pixel density media query */
+@media only screen and (-webkit-min-device-pixel-ratio: 2),
+  only screen and (-moz-min-device-pixel-ratio: 2),
+  only screen and (-o-min-device-pixel-ratio: 2/1),
+  only screen and (min-resolution: 192dpi),
+  only screen and (min-resolution: 2dppx) {
+  .hipster {
+    background: url('../../../content/images/jhipster_family_member_2.svg') no-repeat center top;
+    background-size: contain;
+  }
+}
+//________________________
+
+#page-container {
+  font-family: Arial, Helvetica, sans-serif;
+  .jumbotron {
+    background: #3e8acc;
+    color: whitesmoke;
+    padding: 25px 25px;
+    margin-top: 1em;
+  }
+
+  .container-fluid {
+    display: inline-block;
+    padding: 600px 25px;
+  }
+
+  .bg-gray {
+    background: lightgray;
+  }
+
+  fa-icon {
+    font-size: 150px;
+    color: #3e8acc;
+  }
+
+  .thumbnail {
+    padding: 0 0 15px 0;
+    border: solid #3e8acc;
+    border-radius: 0;
+    background: white;
+  }
+
+  .thumbnail img {
+    width: 100%;
+    height: 100%;
+    margin-bottom: 10px;
+  }
+
+  .panel {
+    border: solid #3e8acc;
+    border-radius: 0;
+    transition: box-shadow 0.5s;
+  }
+
+  .panel:hover {
+    box-shadow: 5px 0px 40px rgba(0, 0, 0, 0.2);
+  }
+
+  .panel-footer .btn:hover {
+    border: 1px solid #3e8acc;
+    background-color: #fff !important;
+    color: #3e8acc;
+  }
+
+  .panel-heading {
+    color: #fff !important;
+    background-color: #3e8acc !important;
+    padding: 25px;
+    border-bottom: 1px solid transparent;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+  }
+
+  .panel-footer {
+    background-color: #fff !important;
+  }
+
+  .panel-footer h3 {
+    font-size: 32px;
+  }
+
+  .panel-footer h4 {
+    color: #aaa;
+    font-size: 14px;
+  }
+
+  .panel-footer .btn {
+    margin: 15px 0;
+    color: #fff;
+    background-color: #3e8acc;
+  }
+
+  /* Images */
+
+  #logo {
+    background: url('../../../content/images/logo/icons/logo-alternate.png') no-repeat center center;
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+    background-size: 105%;
+    border-radius: 50%;
+    background-color: #fff;
+    margin: 5% auto;
+  }
+}
+//custom
+.img-carousel {
+  height: 35em;
+  width: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.carousel-caption {
+  color: #fafdff;
+  font-size: 50px;
+}
+
+//______________
+.form-container {
+  flex-direction: column;
+  margin: 1em;
+  padding: 1em;
+  border: 2px solid #1976d2;
+}
+
+.form-container > * {
+  width: 100%;
+  height: 100%;
+}
+
+.example-box {
+  border: solid 1px #ccc;
+  color: rgba(0, 0, 0, 0.87);
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: #fff;
+  border-radius: 4px;
+  position: relative;
+  z-index: 1;
+  transition: box-shadow 200ms cubic-bezier(0, 0, 0.2, 1);
+  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+}
+
+.example-box:active {
+  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+
+
+
+.parallax {
+  /* The image used */
+  background-image: url("../../../content/images/natation/b.png");
+
+  /* Full height */
+  height: 300px;
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+

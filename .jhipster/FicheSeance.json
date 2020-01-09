@@ -1,0 +1,64 @@
+{
+    "name": "FicheSeance",
+    "fields": [
+        {
+            "fieldName": "ficheSNum",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "date",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "observation",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "volume",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "bilan",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "presence",
+            "otherEntityRelationshipName": "ficheSeance",
+            "relationshipName": "presence"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "exercice",
+            "otherEntityRelationshipName": "ficheSeance",
+            "relationshipName": "exercice",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "groupe",
+            "otherEntityRelationshipName": "ficheSeance",
+            "relationshipName": "groupe",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20191220044432",
+    "entityTableName": "fiche_seance",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

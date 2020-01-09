@@ -1,0 +1,47 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.popov.t04jh",
+      "nativeLanguage": "en"
+    },
+    "jhipsterVersion": "6.4.1",
+    "applicationType": "monolith",
+    "baseName": "t04jh",
+    "packageName": "com.popov.t04jh",
+    "packageFolder": "com/popov/t04jh",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "h2Disk",
+    "prodDatabaseType": "postgresql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "MDc2MDFkMjgzNDFmOGQ4YjZlNjQ5YzUyOWE2OWVlNTdlM2E4Mjk1ZWUzODJiNDY5Y2IxMDI2ODFmMmE1NDU4ZmQ3MTA0YmMwZGRhZjRmMDFjZmQ1ZTBhZTcwMGRmYjcwNmVmNTJlODRiOGQwOWMwMjQ5YjI4YWRjZTE3NGI3OTk=",
+    "embeddableLaunchScript": false,
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "clientFramework": "angularX",
+    "clientTheme": "none",
+    "clientThemeVariant": "",
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": true,
+    "nativeLanguage": "en",
+    "languages": [
+      "en",
+      "fr"
+    ],
+    "blueprints": [],
+    "herokuAppName": "t-04-jh",
+    "herokuDeployType": "git"
+  }
+}

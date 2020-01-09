@@ -1,0 +1,254 @@
+
+// 1 groupe par saison sportive
+
+entity Groupe {
+	groupeName String required
+    startDate Instant required
+    days String required
+	endDate Instant
+    saison String
+    category Category 
+    obs String
+    }
+    
+enum Category {
+   BEBE, POUSIN, BENJAMIN, MINIME, JUNIOR, SENIOR, MASTER
+}
+
+relationship OneToMany {
+  	Groupe {swimer} to Swimer {groupe}
+	Groupe{ficheSeance} to FicheSeance {groupe}
+//	Groupe{programmation} to Programmation {groupe}
+}
+entity Swimer {	
+    licenceNum String
+    firstName String required
+    lastName String required
+    sexe Sexe
+	bearthday Instant
+    phoneNumber String // Type ??
+	eMail String pattern(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)
+    address String
+    studyTime String
+    firstSwim Instant 
+    groupeName String
+	document Long
+}
+
+enum Sexe {
+   HOMME, FEMME, AUTRE
+}
+
+relationship OneToMany {
+    Swimer{mesureAnthropo} to MesureAnthropo  {swimer}
+    Swimer{ficheTest} to FicheTest {swimer}
+	Swimer{document} to Document {swimer}
+}
+
+entity MesureAnthropo {
+	date Instant required
+	poids Long
+    stature Long 
+    tailleAssis Long
+    longTronc Long
+    longMembreInferieurs Long
+    longMembreSuperieur Long
+    anvergureBras Long
+    longBras Long
+    longJambes Long
+    longPieds Long
+    hauteurPied Long
+    longMain Long
+    diamMain Long
+    diamBiacromial Long
+    diamBicretal Long
+    diamThorax Long
+    circThorax Long
+    circThoraxInspirant Long
+    circThoraxExpirant Long
+    circBrasContracte Long
+    circBrasDecontract Long
+    circCuisse Long
+}
+
+// __________________________________________________________________________________
+
+
+entity Document {
+	docTitle String required
+    dateDoc Instant 
+    linkDoc String 
+	typeDoc TypeDocument required
+}
+
+enum TypeDocument  {
+	PHOTOS, PHOTOSPROFIL, BIRTHACT, TESTRESULT, OTHER
+}
+
+// _________________________________________________________________________________
+//__________________________________________________________________________________
+// l'interet d'une fiche de test est la "date du test" les diférent type de test
+// qui compose la fiche de test doivent avoir été constaté a la méme date
+entity  FicheTest {
+	typeTest String required
+	datetest Instant required
+}
+
+relationship OneToMany {
+    FicheTest{testAutre} to TestAutre {ficheTest}
+	FicheTest{testEtude} to TestEtude {ficheTest}
+	FicheTest{testNage} to TestNage {ficheTest}
+	FicheTest{document} to Document {ficheTest}
+	FicheTest{testPhysique} to TestPhysique {ficheTest}
+}
+
+entity TestNage {	
+    testTitle String
+    nl50 Long,
+    nl100 Long
+    nl200 Long
+    nl400 Long
+    nl800 Long
+    nl1500 Long
+    
+    pap50 Long,
+    pap100 Long,
+    pap200 Long,
+    
+    dos50 Long,
+    dos100 Long,
+    dos200 Long,
+	
+    brasse50 Long,
+    brasse100 Long,
+    brasse200 Long,
+    
+    na4ge100 Long,
+    na4ge200 Long,
+    na4ge400 Long,
+    
+    h1nl Long,
+    autre String,
+}
+
+entity TestAutre {	
+    testTitle String 
+    obs1 String
+    obs2 String
+    obs3 String
+    obs4 String
+    obs5 String
+    obs6 String
+    obs7 String
+      
+}
+
+entity TestEtude {
+	testTitle String
+	levelStudy String
+    average Long
+}
+
+entity TestPhysique {
+	testphyTitle String
+	testPhy1 String
+    testPhy2 String
+    testPhy3 String
+    testPhy4 String
+    testPhy5 String	
+}
+
+entity FicheSeance {
+	ficheSNum Long required
+    date Instant required
+    
+    observation String // ??
+    
+ //   themePrimary String
+ //   themeSecondary String
+ //   objectifPrimary String
+ //   objectifSecondary String 	
+   
+ //  	exerciceEchauffement1 String, // ?????
+//	exerciceEchauffement2 String,
+ //   exerciceEchauffement3 String,
+   
+//   	exercicePrimary1 String // exercice name
+//    exercicePrimary2 String 
+//    exercicePrimary3 String,
+//    exercicePrimary4 String,
+//    exercicePrimary5 String,
+//    exercicePrimary6 String,
+//    exercicePrimary7 String,
+//    exercicePrimary8 String,
+    
+//    exerciceFinale1 Long
+//    exerciceFinale2 Long // exercice name
+  volume Long  
+    bilan String
+}
+
+relationship OneToMany {
+	FicheSeance {presence} to Presence {ficheSeance} 
+}
+
+relationship ManyToMany {
+	FicheSeance {exercice} to Exercice {ficheSeance} 
+}
+
+entity Presence  {	
+    idNageurAbs String
+}
+
+
+//__________________________________________________________________________________________________________
+// Programmation annuel a réetudier
+// entity Programmation {
+//	programme String
+//    idGroupe Long required // id Groupe
+// }
+ 
+ relationship ManyToMany {
+  	Objectif{exercice} to Exercice {objectif} 
+	Theme{objectif} to Objectif {theme}
+    Exercice{document} to Document {exercice}
+}
+ 
+ entity Theme { 
+	themeName String required
+    description String
+}
+
+entity Objectif  {
+	objectifName String required
+    description String
+}
+ 
+ entity Exercice {
+	exerciceName String required
+    recomendation String
+    docSchema Long
+}
+ relationship ManyToOne {
+    Exercice{dosage} to Dosage
+}
+entity Dosage{
+dosageS String required
+dosagelong Long required
+}
+
+//__________________________________________________________________________________________________________
+
+// Set pagination options
+paginate Groupe , FicheSeance, Swimer  with infinite-scroll
+paginate Exercice,  Objectif, Theme, Presence, Document with pagination
+paginate TestPhysique, TestEtude, TestAutre, TestNage, FicheTest, MesureAnthropo with pagination
+
+// Use Data Transfert Objects (DTO)
+// dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl except Theme
+
+// Set an angular suffix
+// angularSuffix * with mySuffix

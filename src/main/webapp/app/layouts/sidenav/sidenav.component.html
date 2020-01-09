@@ -1,0 +1,285 @@
+
+<mat-sidenav-container >
+
+
+        <mat-sidenav   class="sidenavleft"  #sidenav0 mode="side" opened="true" color="primary">
+        <!---------------------------------------------------------------------------------------------->
+            <div class="navbar-header" >
+
+                <div class="logo">
+                    <img class="logo-icon" src="/../content/images/logo.png">
+
+                </div>
+
+                <button mat-icon-button class="toggle-sidebar-folded"
+                        fxHide.lt-lg>
+                    <mat-icon>menu</mat-icon>
+                </button>
+
+                <button mat-icon-button class="toggle-sidebar-opened"
+                        fxHide.gt-md>
+                    <mat-icon>arrow_back</mat-icon>
+                </button>
+
+
+            </div>
+        <!---------------------------------------------------------------------------------------------->
+
+
+         <div class="" id="navbarResponsive" [ngbCollapse]="false" [ngSwitch]="isAuthenticated()" >
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                    <a class="nav-link" routerLink="/" >
+                    <span>
+                        <fa-icon icon="home"></fa-icon>
+                        <span jhiTranslate="global.menu.home">Home</span>
+                    </span>
+                    </a>
+                </li>
+                <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                    <a class="nav-link" routerLink="/dashboard" >
+                    <span>
+                        <fa-icon icon="chart-line"></fa-icon>
+                        <span jhiTranslate="global.menu.dashbord">Dashbord</span>
+                    </span>
+                    </a>
+                </li>
+
+                <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                    <a class="nav-link" routerLink="/dashboard2" >
+                    <span>
+                        <fa-icon icon="chart-line"></fa-icon>
+                        <span jhiTranslate="global.menu.planning">Planning</span>
+                    </span>
+                    </a>
+                </li>
+                <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                    <a class="nav-link" routerLink="/dashboard2" >
+                    <span>
+                        <fa-icon icon="chart-line"></fa-icon>
+                        <span >Calendrier Sportif</span>
+                    </span>
+                    </a>
+                </li>
+                <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                    <a class="nav-link" routerLink="/entityUi" >
+                    <span>
+                        <fa-icon icon="chart-line"></fa-icon>
+                        <span >Main UI</span>
+                    </span>
+                    </a>
+                </li>
+                <!-- jhipster-needle-add-element-to-menu - JHipster will add new menu items here -->
+                <div class="sidebar-divider my-0"></div>
+                <!-- Custom Application Name = Suivi Athlète -->
+                <li *ngSwitchCase="true" ngbDropdown class="nav-item dropdown pointer" display="dynamic" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                    <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" >
+                    <span>
+                        <fa-icon icon="swimming-pool"></fa-icon>
+                        <span jhiTranslate="global.menu.appli">
+                            Suivi Athlètes
+                        </span>
+                    </span>
+                    </a>
+                    <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="entity-menu">
+                        <li>
+                            <a class="dropdown-item" routerLink="groupe" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+                                <fa-icon icon="address-card" fixedWidth="true"></fa-icon>
+                                <span jhiTranslate="global.menu.entities.groupes">Groupes</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" routerLink="swimer" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" >
+                                <fa-icon icon="swimmer" fixedWidth="true"></fa-icon>
+                                <span jhiTranslate="global.menu.entities.nageur">Nageur</span>
+                            </a>
+                        </li>
+
+                        <div class="sidebar-divider my-0"></div>
+
+                        <li>
+                            <a class="dropdown-item" routerLink="fiche-seance" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" >
+                                <fa-icon icon="swimming-pool"></fa-icon>
+                                <span >Fiche Seance</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" routerLink="exercice" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" >
+                                <fa-icon icon="swimming-pool"></fa-icon>
+                                <span >Exercice</span>
+                            </a>
+
+
+                        <li>
+                            <a class="dropdown-item" routerLink="theme" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" >
+                                <fa-icon icon="swimming-pool"></fa-icon>
+                                <span >Themes</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" routerLink="objectif" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" >
+                                <fa-icon icon="swimming-pool"></fa-icon>
+                                <span >Objectifs</span>
+                            </a>
+                        </li>
+
+
+
+
+
+                        <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
+                    </ul>
+                </li>
+                <div class="sidebar-divider"></div>
+                <!-- -->
+                <li *jhiHasAnyAuthority="'ROLE_ADMIN'" ngbDropdown class="nav-item dropdown pointer" display="dynamic" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                    <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="entity-menu">
+                    <span>
+                        <fa-icon icon="th-list"></fa-icon>
+                        <span jhiTranslate="global.menu.entities.main">
+                            Entities
+                        </span>
+                    </span>
+                    </a>
+                    <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="entity-menu">
+                        <li>
+                            <a class="dropdown-item" routerLink="groupe" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" >
+                                <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                                <span jhiTranslate="global.menu.entities.groupes">Groupes</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" routerLink="swimer" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" >
+                                <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                                <span jhiTranslate="global.menu.entities.nageur">Nageurs</span>
+                            </a>
+                        </li>
+                        <div class="sidebar-divider my-0"></div>
+
+                        <li>
+                            <a class="dropdown-item" routerLink="fiche-seance" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" >
+                                <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                                <span >Fiche Seance</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" routerLink="exercice" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" >
+                                <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                                <span >Exercice</span>
+                            </a>
+
+                        <li>
+                            <a class="dropdown-item" routerLink="dosage" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" >
+                                <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                                <span >Dosage</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" routerLink="presence" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" >
+                                <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                                <span >Presence</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" routerLink="theme" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" >
+                                <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                                <span >Themes</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" routerLink="objectif" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" >
+                                <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                                <span >Objectifs</span>
+                            </a>
+                        </li>
+
+
+                        <div class="sidebar-divider my-0"></div>
+
+
+                        <li>
+                            <a class="dropdown-item" routerLink="mesure-anthropo" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" >
+                                <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                                <span >Mesure Anthropométrique</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" routerLink="fiche-test" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" >
+                                <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                                <span >Fiche de Test</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" routerLink="test-nage" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" >
+                                <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                                <span >Test Nage</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" routerLink="test-physique" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" >
+                                <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                                <span >Tests Physiques</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" routerLink="test-etude" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" >
+                                <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                                <span >Tests & Etude</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" routerLink="test-autre" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" >
+                                <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                                <span >Tests Autres</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="dropdown-item" routerLink="document" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" >
+                                <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                                <span >Documents</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="dropdown-item" routerLink="user" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" >
+                                <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                                <span >User</span>
+                            </a>
+                        </li>
+                        <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
+                    </ul>
+                </li>
+
+
+
+            </ul>
+        </div>
+
+
+
+
+
+
+    </mat-sidenav>
+    <!---------------------------------------------------------------------------------------------->
+    <mat-sidenav-content>
+
+        <jhi-navbar [inputSideNav]="sidenav0" ></jhi-navbar>
+        <!-------------------------------------------------------------------------------------------->
+
+
+        <!--<p><mat-checkbox [(ngModel)]="opened">sidenav.opened</mat-checkbox></p>
+        <p><button mat-button (click)="sidenav0.toggle()">sidenav.toggle()</button></p>
+        <p>Events:</p>
+        <div class="example-events">
+            <div *ngFor="let e of events">{{e}}</div>
+        </div>-->
+
+        <section id="page-container">
+                <router-outlet></router-outlet>
+                <router-outlet name="popup"></router-outlet>
+        </section>
+    </mat-sidenav-content>
+</mat-sidenav-container>
+

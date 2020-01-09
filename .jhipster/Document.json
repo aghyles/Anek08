@@ -1,0 +1,62 @@
+{
+    "name": "Document",
+    "fields": [
+        {
+            "fieldName": "docTitle",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "dateDoc",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "linkDoc",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "typeDoc",
+            "fieldType": "TypeDocument",
+            "fieldValues": "PHOTOS,PHOTOSPROFIL,BIRTHACT,TESTRESULT,OTHER",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "swimer",
+            "otherEntityRelationshipName": "document",
+            "relationshipName": "swimer",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "ficheTest",
+            "otherEntityRelationshipName": "document",
+            "relationshipName": "ficheTest",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "exercice",
+            "otherEntityRelationshipName": "document",
+            "relationshipName": "exercice",
+            "otherEntityField": "id",
+            "ownerSide": false
+        }
+    ],
+    "changelogDate": "20191220044426",
+    "entityTableName": "document",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

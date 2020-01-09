@@ -1,0 +1,46 @@
+{
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "relationships": [
+        {
+            "relationshipName": "groupes",
+            "otherEntityName": "groupes",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "Groupe"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "licence",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "nom",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "prenom",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "date_naissance",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "tel",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "hauraire_etude",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20191026223827",
+    "dto": "no",
+    "searchEngine": false,
+    "service": "no",
+    "entityTableName": "nageur",
+    "databaseType": "sql",
+    "jpaMetamodelFiltering": false,
+    "pagination": "pagination"
+}

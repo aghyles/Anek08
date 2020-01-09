@@ -1,0 +1,45 @@
+{
+  "t04JhApp": {
+    "mesureAnthropo": {
+      "home": {
+        "title": "MesureAnthropos",
+        "createLabel": "Créer un nouveau Mesure Anthropo",
+        "createOrEditLabel": "Créer ou éditer un Mesure Anthropo",
+        "notFound": "Aucun Mesure Anthropo trouvé"
+      },
+      "created": "Un nouveau Mesure Anthropo a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Mesure Anthropo avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Mesure Anthropo avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Mesure Anthropo {{ id }} ?"
+      },
+      "detail": {
+        "title": "Mesure Anthropo"
+      },
+      "date": "Date",
+      "poids": "Poids",
+      "stature": "Stature",
+      "tailleAssis": "Taille Assis",
+      "longTronc": "Long Tronc",
+      "longMembreInferieurs": "Long Membre Inferieurs",
+      "longMembreSuperieur": "Long Membre Superieur",
+      "anvergureBras": "Anvergure Bras",
+      "longBras": "Long Bras",
+      "longJambes": "Long Jambes",
+      "longPieds": "Long Pieds",
+      "hauteurPied": "Hauteur Pied",
+      "longMain": "Long Main",
+      "diamMain": "Diam Main",
+      "diamBiacromial": "Diam Biacromial",
+      "diamBicretal": "Diam Bicretal",
+      "diamThorax": "Diam Thorax",
+      "circThorax": "Circ Thorax",
+      "circThoraxInspirant": "Circ Thorax Inspirant",
+      "circThoraxExpirant": "Circ Thorax Expirant",
+      "circBrasContracte": "Circ Bras Contracte",
+      "circBrasDecontract": "Circ Bras Decontract",
+      "circCuisse": "Circ Cuisse",
+      "swimer": "Swimer"
+    }
+  }
+}

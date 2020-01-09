@@ -1,0 +1,83 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="t04JhApp.testAutre.home.title">Test Autres</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-test-autre" [routerLink]="['/test-autre/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="t04JhApp.testAutre.home.createLabel">
+            Create a new Test Autre
+            </span>
+        </button>
+    </h2>
+    <jhi-alert-error></jhi-alert-error>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="testAutres?.length === 0">
+        <span jhiTranslate="t04JhApp.testAutre.home.notFound">No testAutres found</span>
+    </div>
+    <div class="table-responsive" *ngIf="testAutres?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="testTitle"><span jhiTranslate="t04JhApp.testAutre.testTitle">Test Title</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="obs1"><span jhiTranslate="t04JhApp.testAutre.obs1">Obs 1</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="obs2"><span jhiTranslate="t04JhApp.testAutre.obs2">Obs 2</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="obs3"><span jhiTranslate="t04JhApp.testAutre.obs3">Obs 3</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="obs4"><span jhiTranslate="t04JhApp.testAutre.obs4">Obs 4</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="obs5"><span jhiTranslate="t04JhApp.testAutre.obs5">Obs 5</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="obs6"><span jhiTranslate="t04JhApp.testAutre.obs6">Obs 6</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="obs7"><span jhiTranslate="t04JhApp.testAutre.obs7">Obs 7</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="ficheTest.id"><span jhiTranslate="t04JhApp.testAutre.ficheTest">Fiche Test</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let testAutre of testAutres ;trackBy: trackId">
+                <td><a [routerLink]="['/test-autre', testAutre.id, 'view' ]">{{testAutre.id}}</a></td>
+                <td>{{testAutre.testTitle}}</td>
+                <td>{{testAutre.obs1}}</td>
+                <td>{{testAutre.obs2}}</td>
+                <td>{{testAutre.obs3}}</td>
+                <td>{{testAutre.obs4}}</td>
+                <td>{{testAutre.obs5}}</td>
+                <td>{{testAutre.obs6}}</td>
+                <td>{{testAutre.obs7}}</td>
+                <td>
+                    <div *ngIf="testAutre.ficheTest">
+                        <a [routerLink]="['/fiche-test', testAutre.ficheTest?.id, 'view' ]" >{{testAutre.ficheTest?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/test-autre', testAutre.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/test-autre', testAutre.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit" (click)="delete(testAutre)"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div [hidden]="testAutres?.length === 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

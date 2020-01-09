@@ -1,0 +1,16 @@
+version: '2'
+services:
+  t04jh-app:
+    image: t04jh
+    environment:
+      - _JAVA_OPTIONS=-Xmx512m -Xms256m
+      - SPRING_PROFILES_ACTIVE=prod,swagger
+      - MANAGEMENT_METRICS_EXPORT_PROMETHEUS_ENABLED=true
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://t04jh-postgresql:5432/t04jh
+      - JHIPSTER_SLEEP=30 # gives time for other services to boot before the application
+    ports:
+      - 8080:8080
+  t04jh-postgresql:
+    extends:
+      file: postgresql.yml
+      service: t04jh-postgresql

@@ -1,0 +1,83 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-fiche-seance-heading" jhiTranslate="t04JhApp.ficheSeance.home.createOrEditLabel">Create or edit a Fiche Seance</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="t04JhApp.ficheSeance.ficheSNum" for="field_ficheSNum">Fiche S Num</label>
+                    <input type="number" class="form-control" name="ficheSNum" id="field_ficheSNum"
+                           formControlName="ficheSNum"/>
+                    <div *ngIf="editForm.get('ficheSNum').invalid && (editForm.get('ficheSNum').dirty || editForm.get('ficheSNum').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('ficheSNum').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('ficheSNum')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="t04JhApp.ficheSeance.date" for="field_date">Date</label>
+                    <div class="d-flex">
+                        <input id="field_date" type="datetime-local" class="form-control" name="date" formControlName="date" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('date').invalid && (editForm.get('date').dirty || editForm.get('date').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('date').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('date').errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="t04JhApp.ficheSeance.observation" for="field_observation">Observation</label>
+                    <input type="text" class="form-control" name="observation" id="field_observation"
+                           formControlName="observation"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="t04JhApp.ficheSeance.volume" for="field_volume">Volume</label>
+                    <input type="number" class="form-control" name="volume" id="field_volume"
+                           formControlName="volume"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="t04JhApp.ficheSeance.bilan" for="field_bilan">Bilan</label>
+                    <input type="text" class="form-control" name="bilan" id="field_bilan"
+                           formControlName="bilan"/>
+                </div>
+
+                <div class="form-group">
+                    <label jhiTranslate="t04JhApp.ficheSeance.exercice" for="field_exercices">Exercice</label>
+                    <select class="form-control" id="field_exercices" multiple name="exercices" formControlName="exercices">
+                        <option [ngValue]="getSelected(editForm.get('exercices').value, exerciceOption)" *ngFor="let exerciceOption of exercices; trackBy: trackExerciceById">{{exerciceOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="t04JhApp.ficheSeance.groupe" for="field_groupe">Groupe</label>
+                    <select class="form-control" id="field_groupe" name="groupe" formControlName="groupe">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="groupeOption.id === editForm.get('groupe').value?.id ? editForm.get('groupe').value : groupeOption" *ngFor="let groupeOption of groupes; trackBy: trackGroupeById">{{groupeOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

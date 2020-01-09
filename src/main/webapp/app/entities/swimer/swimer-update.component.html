@@ -1,0 +1,114 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-swimer-heading" jhiTranslate="t04JhApp.swimer.home.createOrEditLabel">Create or edit a Swimer</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="t04JhApp.swimer.licenceNum" for="field_licenceNum">Licence Num</label>
+                    <input type="text" class="form-control" name="licenceNum" id="field_licenceNum"
+                           formControlName="licenceNum"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="t04JhApp.swimer.firstName" for="field_firstName">First Name</label>
+                    <input type="text" class="form-control" name="firstName" id="field_firstName"
+                           formControlName="firstName"/>
+                    <div *ngIf="editForm.get('firstName').invalid && (editForm.get('firstName').dirty || editForm.get('firstName').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('firstName').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="t04JhApp.swimer.lastName" for="field_lastName">Last Name</label>
+                    <input type="text" class="form-control" name="lastName" id="field_lastName"
+                           formControlName="lastName"/>
+                    <div *ngIf="editForm.get('lastName').invalid && (editForm.get('lastName').dirty || editForm.get('lastName').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('lastName').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="t04JhApp.swimer.sexe" for="field_sexe">Sexe</label>
+                    <select class="form-control" name="sexe" formControlName="sexe" id="field_sexe">
+                        <option value="HOMME">{{'t04JhApp.Sexe.HOMME' | translate}}</option>
+                        <option value="FEMME">{{'t04JhApp.Sexe.FEMME' | translate}}</option>
+                        <option value="AUTRE">{{'t04JhApp.Sexe.AUTRE' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="t04JhApp.swimer.bearthday" for="field_bearthday">Bearthday</label>
+                    <div class="d-flex">
+                        <input id="field_bearthday" type="datetime-local" class="form-control" name="bearthday" formControlName="bearthday" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="t04JhApp.swimer.phoneNumber" for="field_phoneNumber">Phone Number</label>
+                    <input type="text" class="form-control" name="phoneNumber" id="field_phoneNumber"
+                           formControlName="phoneNumber"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="t04JhApp.swimer.eMail" for="field_eMail">E Mail</label>
+                    <input type="text" class="form-control" name="eMail" id="field_eMail"
+                           formControlName="eMail"/>
+                    <div *ngIf="editForm.get('eMail').invalid && (editForm.get('eMail').dirty || editForm.get('eMail').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('eMail').errors.pattern" jhiTranslate="entity.validation.pattern" [translateValues]="{ pattern: 'E Mail' }">
+                            This field should follow pattern for "E Mail".
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="t04JhApp.swimer.address" for="field_address">Address</label>
+                    <input type="text" class="form-control" name="address" id="field_address"
+                           formControlName="address"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="t04JhApp.swimer.studyTime" for="field_studyTime">Study Time</label>
+                    <input type="text" class="form-control" name="studyTime" id="field_studyTime"
+                           formControlName="studyTime"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="t04JhApp.swimer.firstSwim" for="field_firstSwim">First Swim</label>
+                    <div class="d-flex">
+                        <input id="field_firstSwim" type="datetime-local" class="form-control" name="firstSwim" formControlName="firstSwim" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="t04JhApp.swimer.groupeName" for="field_groupeName">Groupe Name</label>
+                    <input type="text" class="form-control" name="groupeName" id="field_groupeName"
+                           formControlName="groupeName"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="t04JhApp.swimer.document" for="field_document">Document</label>
+                    <input type="number" class="form-control" name="document" id="field_document"
+                           formControlName="document"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="t04JhApp.swimer.groupe" for="field_groupe">Groupe</label>
+                    <select class="form-control" id="field_groupe" name="groupe" formControlName="groupe">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="groupeOption.id === editForm.get('groupe').value?.id ? editForm.get('groupe').value : groupeOption" *ngFor="let groupeOption of groupes; trackBy: trackGroupeById">{{groupeOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

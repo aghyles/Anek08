@@ -1,0 +1,67 @@
+{
+    "name": "Groupe",
+    "fields": [
+        {
+            "fieldName": "groupeName",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "startDate",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "days",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "endDate",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "saison",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "category",
+            "fieldType": "Category",
+            "fieldValues": "BEBE,POUSIN,BENJAMIN,MINIME,JUNIOR,SENIOR,MASTER"
+        },
+        {
+            "fieldName": "obs",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "swimer",
+            "otherEntityRelationshipName": "groupe",
+            "relationshipName": "swimer"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "ficheSeance",
+            "otherEntityRelationshipName": "groupe",
+            "relationshipName": "ficheSeance"
+        }
+    ],
+    "changelogDate": "20191220044423",
+    "entityTableName": "groupe",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

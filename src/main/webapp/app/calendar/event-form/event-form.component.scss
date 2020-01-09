@@ -1,0 +1,40 @@
+@import "@fuse/scss/fuse";
+
+.event-form-dialog {
+
+    @include media-breakpoint('xs') {
+        // width: 100%;
+    }
+
+    @include media-breakpoint('gt-xs') {
+      //  width: 100%;
+      height: 99%;
+    }
+
+    .mat-dialog-container {
+        padding: 0;
+    }
+
+    .dialog-content-wrapper {
+       // max-height: 100vh;
+
+        display: flex;
+        flex-direction: column;
+    }
+
+    .primary-color-input,
+    .secondary-color-input {
+     //   padding: 6px 8px;
+    }
+}
+
+.dialogAction{
+height: 15px;
+  max-height: 5%;
+  border: 2px solid black;
+}
+
+.ficheForm{
+  height: 100%;
+  border: 2px solid black;
+}

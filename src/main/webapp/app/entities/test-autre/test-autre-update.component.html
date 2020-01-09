@@ -1,0 +1,71 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-test-autre-heading" jhiTranslate="t04JhApp.testAutre.home.createOrEditLabel">Create or edit a Test Autre</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="t04JhApp.testAutre.testTitle" for="field_testTitle">Test Title</label>
+                    <input type="text" class="form-control" name="testTitle" id="field_testTitle"
+                           formControlName="testTitle"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="t04JhApp.testAutre.obs1" for="field_obs1">Obs 1</label>
+                    <input type="text" class="form-control" name="obs1" id="field_obs1"
+                           formControlName="obs1"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="t04JhApp.testAutre.obs2" for="field_obs2">Obs 2</label>
+                    <input type="text" class="form-control" name="obs2" id="field_obs2"
+                           formControlName="obs2"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="t04JhApp.testAutre.obs3" for="field_obs3">Obs 3</label>
+                    <input type="text" class="form-control" name="obs3" id="field_obs3"
+                           formControlName="obs3"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="t04JhApp.testAutre.obs4" for="field_obs4">Obs 4</label>
+                    <input type="text" class="form-control" name="obs4" id="field_obs4"
+                           formControlName="obs4"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="t04JhApp.testAutre.obs5" for="field_obs5">Obs 5</label>
+                    <input type="text" class="form-control" name="obs5" id="field_obs5"
+                           formControlName="obs5"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="t04JhApp.testAutre.obs6" for="field_obs6">Obs 6</label>
+                    <input type="text" class="form-control" name="obs6" id="field_obs6"
+                           formControlName="obs6"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="t04JhApp.testAutre.obs7" for="field_obs7">Obs 7</label>
+                    <input type="text" class="form-control" name="obs7" id="field_obs7"
+                           formControlName="obs7"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="t04JhApp.testAutre.ficheTest" for="field_ficheTest">Fiche Test</label>
+                    <select class="form-control" id="field_ficheTest" name="ficheTest" formControlName="ficheTest">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="ficheTestOption.id === editForm.get('ficheTest').value?.id ? editForm.get('ficheTest').value : ficheTestOption" *ngFor="let ficheTestOption of fichetests; trackBy: trackFicheTestById">{{ficheTestOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

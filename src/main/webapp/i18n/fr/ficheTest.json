@@ -1,0 +1,29 @@
+{
+  "t04JhApp": {
+    "ficheTest": {
+      "home": {
+        "title": "FicheTests",
+        "createLabel": "Créer un nouveau Fiche Test",
+        "createOrEditLabel": "Créer ou éditer un Fiche Test",
+        "notFound": "Aucun Fiche Test trouvé"
+      },
+      "created": "Un nouveau Fiche Test a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Fiche Test avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Fiche Test avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Fiche Test {{ id }} ?"
+      },
+      "detail": {
+        "title": "Fiche Test"
+      },
+      "typeTest": "Type Test",
+      "datetest": "Datetest",
+      "testAutre": "Test Autre",
+      "testEtude": "Test Etude",
+      "testNage": "Test Nage",
+      "document": "Document",
+      "testPhysique": "Test Physique",
+      "swimer": "Swimer"
+    }
+  }
+}

@@ -1,0 +1,194 @@
+      <div [ngSwitch]="isAuthenticated()">
+          <div *ngSwitchCase="true">
+              <ngb-alert *ngIf="!staticAlertClosed" (close)="staticAlertClosed = true">
+            <span
+              id="home-logged-message"
+              *ngIf="account"
+              jhiTranslate="home.logged.message"
+              [translateValues]="{ username: account.login }"
+            >
+              You are logged in as user !! "{{ account.login }}".
+            </span>
+              </ngb-alert>
+          </div>
+
+
+        <div class="alert alert-warning" *ngSwitchCase="false">
+          <span jhiTranslate="global.messages.info.authenticated.prefix">If you want to </span>
+          <a class="alert-link" (click)="login()" jhiTranslate="global.messages.info.authenticated.link">sign in</a
+          ><span jhiTranslate="global.messages.info.authenticated.suffix"
+            >, you can try the default accounts:<br />- Administrator (login="admin" and password="admin") <br />- User (login="user" and
+            password="user").</span
+          >
+        </div>
+        <div class="alert alert-warning" *ngSwitchCase="false">
+          <span jhiTranslate="global.messages.info.register.noaccount">You don't have an account yet?</span>&nbsp;
+          <a class="alert-link" routerLink="account/register" jhiTranslate="global.messages.info.register.link">Register a new account</a>
+        </div>
+      </div>
+
+
+
+    <!--     Carousel-->
+    <ngb-carousel class="carousel">
+        <ng-template ngbSlide>
+            <div class="picsum-img-wrapper">
+                <img class="img-carousel" src="../../content/images/natation/a.png" alt="Random first slide" />
+            </div>
+            <div class="carousel-caption">
+                <h3>Gestionnaire de séances</h3>
+                <p>Conception de programmes et gestion des séances</p>
+            </div>
+        </ng-template>
+        <ng-template ngbSlide>
+            <div class="picsum-img-wrapper">
+                <img class="img-carousel" src="../../content/images/natation/b.png" alt="Random second slide" />
+            </div>
+            <div class="carousel-caption">
+                <h3>Détectez les problèmes de récupération.</h3>
+                <p>Gérez la fatigue, et réduisez l’impact du stress sportif et non-sportif pour maximiser l’état de forme.</p>
+            </div>
+        </ng-template>
+        <ng-template ngbSlide>
+            <div class="picsum-img-wrapper">
+                <img class="img-carousel" src="../../content/images/natation/c.png" alt="Random third slide" />
+            </div>
+            <div class="carousel-caption">
+                <h3>Tests et Évaluation</h3>
+                <p>Gérez tous vos tests et programmes d’évaluations comme jamais auparavant</p>
+            </div>
+        </ng-template>
+    </ngb-carousel>
+    <!--     Carousel-->
+
+  <div class="jumbotron text-center">
+    <span id="logo"></span>
+      <p>La progression physique et technique est conditionnée par le temps passé à l’entraînement. Il faut donc s’entraîner toujours plus et mieux pour tendre vers le haut niveau et y rester.
+      </p>
+      <p>Toutefois pour comprendre les effets de l’entraînement sur les sportifs et leur éviter de tomber dans le surentraînement ou de se blesser, il est pertinent de mettre en place un suivi individuel et quotidien.
+      </p>
+      <p>Se pose alors la question des marqueurs à sélectionner et des outils à utiliser. Le choix des marqueurs perceptifs est très intéressant car ils sont très simple à récolter en routine quotidienne et ont un caractère systémique qui représente de véritables atouts dans le contrôle des effets de la charge d’entraînement. Pour les outils, les nouvelles technologies que sont smartphones et tablettes permettent de créer toutes sortes de supports informatiques comme les web-applications par exemple.
+     </p>
+  </div>
+
+  <div class="container-fluid text-center">
+    <h2 jhiTranslate="">Services</h2>
+    <p jhiTranslate="">!!!!!!!!</p>
+    <br />
+    <div class="row">
+      <div class="col-sm-4">
+        <fa-icon [icon]="'bullhorn'"></fa-icon>
+        <h4>Natation</h4>
+        <p>Ecole de Natation</p>
+      </div>
+      <div class="col-sm-4">
+        <fa-icon [icon]="'chart-line'"></fa-icon>
+        <h4>Polo</h4>
+        <p>Le water polo</p>
+      </div>
+      <div class="col-sm-4">
+        <fa-icon [icon]="'magic'"></fa-icon>
+        <h4>danse synchronisé</h4>
+        <p>Cent paroles, mille discours ; un seul est vrai.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid text-center bg-gray">
+    <h2 jhiTranslate="">Portafolio</h2>
+    <p jhiTranslate="">What did we already created?</p>
+    <br />
+    <div class="row text-center">
+      <div class="col-sm-4">
+        <div class="thumbnail">
+          <fa-icon [icon]="'cubes'"></fa-icon>
+          <h4>Generateur</h4>
+          <p>Fiche de séance</p>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="thumbnail">
+          <fa-icon [icon]="'cogs'"></fa-icon>
+          <h4>Du simple au Complexe</h4>
+          <p>Alternance: Travail/Repos</p>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="thumbnail">
+          <fa-icon [icon]="'server'"></fa-icon>
+          <h4>Equilibres/flottaison</h4>
+          <p>Le postural avant le moteur</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div class="text-center">
+      <h2 jhiTranslate="">Pricing</h2>
+      <p jhiTranslate="">Apprentissage de la technique de battement de jembeb en crawl et en dos</p>
+      <br />
+    </div>
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="panel panel-default text-center">
+          <div class="panel-heading">
+            <h1>Basic</h1>
+          </div>
+          <div class="panel-body">
+            <br />
+            <p>Accès à beaucoup de contenu de formation</p>
+            <p>Accès à la source de notre produit</p>
+            <p>Soutien communautaire</p>
+          </div>
+          <div class="panel-footer">
+            <hr />
+            <h3>Free</h3>
+            <h4>Dis juste merci</h4>
+            <button class="btn btn-lg">S'inscrire</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="panel panel-default text-center">
+          <div class="panel-heading">
+            <h1>Pro</h1>
+          </div>
+          <div class="panel-body">
+            <br />
+            <p>Accès complet au contenu de la formation</p>
+            <p>Accès complet à nos produits premiun</p>
+            <p>Accès à la source de notre produit</p>
+          </div>
+          <div class="panel-footer">
+            <hr />
+            <h3>Free</h3>
+            <h4>Dis juste merci</h4>
+            <button class="btn btn-lg">S'inscrire</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="panel panel-default text-center">
+          <div class="panel-heading">
+            <h1>Premium</h1>
+          </div>
+          <div class="panel-body">
+            <br />
+            <p>Demander des fonctionnalités pour les produits</p>
+            <p>Support complet de notre équipe</p>
+            <p>Toutes nos fonctionnalités de plan pro</p>
+          </div>
+          <div class="panel-footer">
+            <hr />
+            <h3>Free</h3>
+            <h4>Dis juste merci</h4>
+            <button class="btn btn-lg">S'inscrire</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+

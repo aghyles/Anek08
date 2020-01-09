@@ -1,0 +1,53 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="testPhysique">
+            <h2><span jhiTranslate="t04JhApp.testPhysique.detail.title">Test Physique</span> {{testPhysique.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="t04JhApp.testPhysique.testphyTitle">Testphy Title</span></dt>
+                <dd>
+                    <span>{{testPhysique.testphyTitle}}</span>
+                </dd>
+                <dt><span jhiTranslate="t04JhApp.testPhysique.testPhy1">Test Phy 1</span></dt>
+                <dd>
+                    <span>{{testPhysique.testPhy1}}</span>
+                </dd>
+                <dt><span jhiTranslate="t04JhApp.testPhysique.testPhy2">Test Phy 2</span></dt>
+                <dd>
+                    <span>{{testPhysique.testPhy2}}</span>
+                </dd>
+                <dt><span jhiTranslate="t04JhApp.testPhysique.testPhy3">Test Phy 3</span></dt>
+                <dd>
+                    <span>{{testPhysique.testPhy3}}</span>
+                </dd>
+                <dt><span jhiTranslate="t04JhApp.testPhysique.testPhy4">Test Phy 4</span></dt>
+                <dd>
+                    <span>{{testPhysique.testPhy4}}</span>
+                </dd>
+                <dt><span jhiTranslate="t04JhApp.testPhysique.testPhy5">Test Phy 5</span></dt>
+                <dd>
+                    <span>{{testPhysique.testPhy5}}</span>
+                </dd>
+                <dt><span jhiTranslate="t04JhApp.testPhysique.ficheTest">Fiche Test</span></dt>
+                <dd>
+                    <div *ngIf="testPhysique.ficheTest">
+                        <a [routerLink]="['/fiche-test', testPhysique.ficheTest?.id, 'view']">{{testPhysique.ficheTest?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/test-physique', testPhysique.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

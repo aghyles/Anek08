@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity FicheSeance.
+    -->
+    <changeSet id="20191220044432-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="fiche_seance_id"
+                                 baseTableName="fiche_seance_exercice"
+                                 constraintName="fk_fiche_seance_exercice_fiche_seance_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="fiche_seance"/>
+
+        <addForeignKeyConstraint baseColumnNames="exercice_id"
+                                 baseTableName="fiche_seance_exercice"
+                                 constraintName="fk_fiche_seance_exercice_exercice_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="exercice"/>
+        
+        <addForeignKeyConstraint baseColumnNames="groupe_id"
+                                 baseTableName="fiche_seance"
+                                 constraintName="fk_fiche_seance_groupe_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="groupe"/>
+
+    </changeSet>
+</databaseChangeLog>

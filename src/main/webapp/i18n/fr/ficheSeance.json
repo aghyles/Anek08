@@ -1,0 +1,29 @@
+{
+  "t04JhApp": {
+    "ficheSeance": {
+      "home": {
+        "title": "FicheSeances",
+        "createLabel": "Créer un nouveau Fiche Seance",
+        "createOrEditLabel": "Créer ou éditer un Fiche Seance",
+        "notFound": "Aucun Fiche Seance trouvé"
+      },
+      "created": "Un nouveau Fiche Seance a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Fiche Seance avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Fiche Seance avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Fiche Seance {{ id }} ?"
+      },
+      "detail": {
+        "title": "Fiche Seance"
+      },
+      "ficheSNum": "Fiche S Num",
+      "date": "Date",
+      "observation": "Observation",
+      "volume": "Volume",
+      "bilan": "Bilan",
+      "presence": "Presence",
+      "exercice": "Exercice",
+      "groupe": "Groupe"
+    }
+  }
+}

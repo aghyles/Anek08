@@ -1,0 +1,76 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-document-heading" jhiTranslate="t04JhApp.document.home.createOrEditLabel">Create or edit a Document</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="t04JhApp.document.docTitle" for="field_docTitle">Doc Title</label>
+                    <input type="text" class="form-control" name="docTitle" id="field_docTitle"
+                           formControlName="docTitle"/>
+                    <div *ngIf="editForm.get('docTitle').invalid && (editForm.get('docTitle').dirty || editForm.get('docTitle').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('docTitle').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="t04JhApp.document.dateDoc" for="field_dateDoc">Date Doc</label>
+                    <div class="d-flex">
+                        <input id="field_dateDoc" type="datetime-local" class="form-control" name="dateDoc" formControlName="dateDoc" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="t04JhApp.document.linkDoc" for="field_linkDoc">Link Doc</label>
+                    <input type="text" class="form-control" name="linkDoc" id="field_linkDoc"
+                           formControlName="linkDoc"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="t04JhApp.document.typeDoc" for="field_typeDoc">Type Doc</label>
+                    <select class="form-control" name="typeDoc" formControlName="typeDoc" id="field_typeDoc">
+                        <option value="PHOTOS">{{'t04JhApp.TypeDocument.PHOTOS' | translate}}</option>
+                        <option value="PHOTOSPROFIL">{{'t04JhApp.TypeDocument.PHOTOSPROFIL' | translate}}</option>
+                        <option value="BIRTHACT">{{'t04JhApp.TypeDocument.BIRTHACT' | translate}}</option>
+                        <option value="TESTRESULT">{{'t04JhApp.TypeDocument.TESTRESULT' | translate}}</option>
+                        <option value="OTHER">{{'t04JhApp.TypeDocument.OTHER' | translate}}</option>
+                    </select>
+                    <div *ngIf="editForm.get('typeDoc').invalid && (editForm.get('typeDoc').dirty || editForm.get('typeDoc').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('typeDoc').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="t04JhApp.document.swimer" for="field_swimer">Swimer</label>
+                    <select class="form-control" id="field_swimer" name="swimer" formControlName="swimer">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="swimerOption.id === editForm.get('swimer').value?.id ? editForm.get('swimer').value : swimerOption" *ngFor="let swimerOption of swimers; trackBy: trackSwimerById">{{swimerOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="t04JhApp.document.ficheTest" for="field_ficheTest">Fiche Test</label>
+                    <select class="form-control" id="field_ficheTest" name="ficheTest" formControlName="ficheTest">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="ficheTestOption.id === editForm.get('ficheTest').value?.id ? editForm.get('ficheTest').value : ficheTestOption" *ngFor="let ficheTestOption of fichetests; trackBy: trackFicheTestById">{{ficheTestOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

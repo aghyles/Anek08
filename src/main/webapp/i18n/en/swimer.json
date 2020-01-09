@@ -1,0 +1,37 @@
+{
+  "t04JhApp": {
+    "swimer": {
+      "home": {
+        "title": "Swimers",
+        "createLabel": "Create a new Swimer",
+        "createOrEditLabel": "Create or edit a Swimer",
+        "notFound": "No Swimers found"
+      },
+      "created": "A new Swimer is created with identifier {{ param }}",
+      "updated": "A Swimer is updated with identifier {{ param }}",
+      "deleted": "A Swimer is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Swimer {{ id }}?"
+      },
+      "detail": {
+        "title": "Swimer"
+      },
+      "licenceNum": "Licence Num",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "sexe": "Sexe",
+      "bearthday": "Bearthday",
+      "phoneNumber": "Phone Number",
+      "eMail": "E Mail",
+      "address": "Address",
+      "studyTime": "Study Time",
+      "firstSwim": "First Swim",
+      "groupeName": "Groupe Name",
+      "document": "Document",
+      "mesureAnthropo": "Mesure Anthropo",
+      "ficheTest": "Fiche Test",
+      "document": "Document",
+      "groupe": "Groupe"
+    }
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "t04JhApp": {
+    "testNage": {
+      "home": {
+        "title": "TestNages",
+        "createLabel": "Créer un nouveau Test Nage",
+        "createOrEditLabel": "Créer ou éditer un Test Nage",
+        "notFound": "Aucun Test Nage trouvé"
+      },
+      "created": "Un nouveau Test Nage a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Test Nage avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Test Nage avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Test Nage {{ id }} ?"
+      },
+      "detail": {
+        "title": "Test Nage"
+      },
+      "testTitle": "Test Title",
+      "nl50": "Nl 50",
+      "nl100": "Nl 100",
+      "nl200": "Nl 200",
+      "nl400": "Nl 400",
+      "nl800": "Nl 800",
+      "nl1500": "Nl 1500",
+      "pap50": "Pap 50",
+      "pap100": "Pap 100",
+      "pap200": "Pap 200",
+      "dos50": "Dos 50",
+      "dos100": "Dos 100",
+      "dos200": "Dos 200",
+      "brasse50": "Brasse 50",
+      "brasse100": "Brasse 100",
+      "brasse200": "Brasse 200",
+      "na4ge100": "Na 4 Ge 100",
+      "na4ge200": "Na 4 Ge 200",
+      "na4ge400": "Na 4 Ge 400",
+      "h1nl": "H 1 Nl",
+      "autre": "Autre",
+      "ficheTest": "Fiche Test"
+    }
+  }
+}

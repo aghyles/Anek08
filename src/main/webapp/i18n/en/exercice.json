@@ -1,0 +1,28 @@
+{
+  "t04JhApp": {
+    "exercice": {
+      "home": {
+        "title": "Exercices",
+        "createLabel": "Create a new Exercice",
+        "createOrEditLabel": "Create or edit a Exercice",
+        "notFound": "No Exercices found"
+      },
+      "created": "A new Exercice is created with identifier {{ param }}",
+      "updated": "A Exercice is updated with identifier {{ param }}",
+      "deleted": "A Exercice is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Exercice {{ id }}?"
+      },
+      "detail": {
+        "title": "Exercice"
+      },
+      "exerciceName": "Exercice Name",
+      "recomendation": "Recomendation",
+      "docSchema": "Doc Schema",
+      "dosage": "Dosage",
+      "document": "Document",
+      "ficheSeance": "Fiche Seance",
+      "objectif": "Objectif"
+    }
+  }
+}

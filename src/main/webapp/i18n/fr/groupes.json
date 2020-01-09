@@ -1,0 +1,24 @@
+{
+  "t04JhApp": {
+    "groupes": {
+      "home": {
+        "title": "Groupes",
+        "createLabel": "Créer un nouveau groupe",
+        "createOrEditLabel": "Créer ou éditer un groupe",
+        "notFound": "Aucun groupe trouvé"
+      },
+      "created": "Un nouveau groupe est créé avec identifiant {{ param }}",
+      "updated": "Un groupe est mis à jour avec l'identifiant {{ param }}",
+      "deleted": "Un groupe est supprimé avec l'identifiant {{ param }}",
+      "delete": {
+        "question": "Êtes-vous sûr de vouloir supprimer les groupes?{{ id }}?"
+      },
+      "detail": {
+        "title": "Groupes"
+      },
+      "groupes": "Groupes",
+      "saison": "Saison",
+      "user": "Utilisateur"
+    }
+  }
+}

@@ -1,0 +1,122 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="t04JhApp.groupe.home.title">Groupes</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-groupe" [routerLink]="['/groupe/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="t04JhApp.groupe.home.createLabel">
+            Create a new Group
+            </span>
+        </button>
+    </h2>
+    <jhi-alert-error></jhi-alert-error>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="groupes?.length === 0">
+        <span jhiTranslate="t04JhApp.groupe.home.notFound">No groupes found</span>
+    </div>
+    <div class="table-responsive" *ngIf="groupes?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
+            <th scope="col"  jhiSortBy="groupeName"><span jhiTranslate="t04JhApp.groupe.groupeName">Groupe Name</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="obs"><span jhiTranslate="t04JhApp.groupe.obs">Obs</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tr *ngFor="let groupe of groupes ;trackBy: trackId">
+                <td> <a (click)="swimi(groupe.id)" (click)="loadPageS(page + 1)"> {{groupe.groupeName}} </a></td>
+
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/groupe', groupe.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" ></span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/groupe', groupe.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" ></span>
+                        </button>
+                        <button type="submit" (click)="delete(groupe)"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" ></span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<div *ngIf="swim!==0">
+    <h2 id="page-headingg" >{{swim}}
+        <span jhiTranslate="t04JhApp.swimer.home.title">Swimers </span>
+        <button id="jh-create-entityy" class="btn btn-primary float-right jh-create-entity create-swimer" [routerLink]="['/swimer/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="t04JhApp.swimer.home.createLabel">
+            Create a new Swimer
+            </span>
+        </button>
+    </h2>
+    <jhi-alert-error></jhi-alert-error>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="swimers?.length === 0">
+        <span jhiTranslate="t04JhApp.swimer.home.notFound">No swimers found</span>
+    </div>
+    <div class="table-responsive" *ngIf="swimers?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
+                <th scope="col"  jhiSortBy="firstName"><span jhiTranslate="t04JhApp.swimer.firstName">First Name</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+                <th scope="col"  jhiSortBy="lastName"><span jhiTranslate="t04JhApp.swimer.lastName">Last Name</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+                <th scope="col"  jhiSortBy="bearthday"><span jhiTranslate="t04JhApp.swimer.bearthday">Bearthday</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+                <th scope="col"  jhiSortBy="phoneNumber"><span jhiTranslate="t04JhApp.swimer.phoneNumber">Phone Number</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+                <th scope="col"  jhiSortBy="studyTime"><span jhiTranslate="t04JhApp.swimer.studyTime">Study Time</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+                <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody infinite-scroll  (scrolled)="loadPageS(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tr *ngFor="let swimer of swimers  ">
+                <td>{{swimer.firstName}}</td>
+                <td>{{swimer.lastName}}</td>
+                <td>{{swimer.bearthday | date:'medium'}}</td>
+                <td>{{swimer.phoneNumber}}</td>
+                <td>{{swimer.studyTime}}</td>
+
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/swimer', swimer.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" ></span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/swimer', swimer.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" ></span>
+                        </button>
+                        <button type="submit" (click)="delete(swimer)"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" ></span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <jhi-calendar></jhi-calendar>
+
+</div>

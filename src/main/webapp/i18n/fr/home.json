@@ -1,0 +1,10 @@
+{
+    "home": {
+        "title": "Bienvenue !",
+        "subtitle": "Ceci est en cour de développement",
+        "logged": {
+            "message": "Vous êtes connecté en tant que \"{{username}}\"."
+        },
+        "question": "\nSi vous avez des questions sur cette application, envoyez-moi un e-mail à l'adresse Aghyles@gmail.com"
+    }
+}

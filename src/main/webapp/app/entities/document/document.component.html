@@ -1,0 +1,81 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="t04JhApp.document.home.title">Documents</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-document" [routerLink]="['/document/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="t04JhApp.document.home.createLabel">
+            Create a new Document
+            </span>
+        </button>
+    </h2>
+    <jhi-alert-error></jhi-alert-error>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="documents?.length === 0">
+        <span jhiTranslate="t04JhApp.document.home.notFound">No documents found</span>
+    </div>
+    <div class="table-responsive" *ngIf="documents?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="docTitle"><span jhiTranslate="t04JhApp.document.docTitle">Doc Title</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="dateDoc"><span jhiTranslate="t04JhApp.document.dateDoc">Date Doc</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="linkDoc"><span jhiTranslate="t04JhApp.document.linkDoc">Link Doc</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="typeDoc"><span jhiTranslate="t04JhApp.document.typeDoc">Type Doc</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="swimer.id"><span jhiTranslate="t04JhApp.document.swimer">Swimer</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="ficheTest.id"><span jhiTranslate="t04JhApp.document.ficheTest">Fiche Test</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let document of documents ;trackBy: trackId">
+                <td><a [routerLink]="['/document', document.id, 'view' ]">{{document.id}}</a></td>
+                <td>{{document.docTitle}}</td>
+                <td>{{document.dateDoc | date:'medium'}}</td>
+                <td>{{document.linkDoc}}</td>
+                <td jhiTranslate="{{'t04JhApp.TypeDocument.' + document.typeDoc}}">{{document.typeDoc}}</td>
+                <td>
+                    <div *ngIf="document.swimer">
+                        <a [routerLink]="['/swimer', document.swimer?.id, 'view' ]" >{{document.swimer?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="document.ficheTest">
+                        <a [routerLink]="['/fiche-test', document.ficheTest?.id, 'view' ]" >{{document.ficheTest?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/document', document.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/document', document.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit" (click)="delete(document)"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div [hidden]="documents?.length === 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,11 @@
+{
+  "home": {
+    "title": "Welcome!",
+    "subtitle": "bjr",
+    "logged": {
+      "message": "You are logged in as user \"{{username}}\"."
+    },
+    "question": "If you have any question on this application please mail me at Aghyles@gmail.com"
+
+  }
+}

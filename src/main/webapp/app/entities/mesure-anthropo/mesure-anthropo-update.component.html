@@ -1,0 +1,157 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-mesure-anthropo-heading" jhiTranslate="t04JhApp.mesureAnthropo.home.createOrEditLabel">Create or edit a Mesure Anthropo</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="t04JhApp.mesureAnthropo.date" for="field_date">Date</label>
+                    <div class="d-flex">
+                        <input id="field_date" type="datetime-local" class="form-control" name="date" formControlName="date" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('date').invalid && (editForm.get('date').dirty || editForm.get('date').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('date').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('date').errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="t04JhApp.mesureAnthropo.poids" for="field_poids">Poids</label>
+                    <input type="number" class="form-control" name="poids" id="field_poids"
+                           formControlName="poids"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="t04JhApp.mesureAnthropo.stature" for="field_stature">Stature</label>
+                    <input type="number" class="form-control" name="stature" id="field_stature"
+                           formControlName="stature"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="t04JhApp.mesureAnthropo.tailleAssis" for="field_tailleAssis">Taille Assis</label>
+                    <input type="number" class="form-control" name="tailleAssis" id="field_tailleAssis"
+                           formControlName="tailleAssis"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="t04JhApp.mesureAnthropo.longTronc" for="field_longTronc">Long Tronc</label>
+                    <input type="number" class="form-control" name="longTronc" id="field_longTronc"
+                           formControlName="longTronc"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="t04JhApp.mesureAnthropo.longMembreInferieurs" for="field_longMembreInferieurs">Long Membre Inferieurs</label>
+                    <input type="number" class="form-control" name="longMembreInferieurs" id="field_longMembreInferieurs"
+                           formControlName="longMembreInferieurs"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="t04JhApp.mesureAnthropo.longMembreSuperieur" for="field_longMembreSuperieur">Long Membre Superieur</label>
+                    <input type="number" class="form-control" name="longMembreSuperieur" id="field_longMembreSuperieur"
+                           formControlName="longMembreSuperieur"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="t04JhApp.mesureAnthropo.anvergureBras" for="field_anvergureBras">Anvergure Bras</label>
+                    <input type="number" class="form-control" name="anvergureBras" id="field_anvergureBras"
+                           formControlName="anvergureBras"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="t04JhApp.mesureAnthropo.longBras" for="field_longBras">Long Bras</label>
+                    <input type="number" class="form-control" name="longBras" id="field_longBras"
+                           formControlName="longBras"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="t04JhApp.mesureAnthropo.longJambes" for="field_longJambes">Long Jambes</label>
+                    <input type="number" class="form-control" name="longJambes" id="field_longJambes"
+                           formControlName="longJambes"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="t04JhApp.mesureAnthropo.longPieds" for="field_longPieds">Long Pieds</label>
+                    <input type="number" class="form-control" name="longPieds" id="field_longPieds"
+                           formControlName="longPieds"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="t04JhApp.mesureAnthropo.hauteurPied" for="field_hauteurPied">Hauteur Pied</label>
+                    <input type="number" class="form-control" name="hauteurPied" id="field_hauteurPied"
+                           formControlName="hauteurPied"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="t04JhApp.mesureAnthropo.longMain" for="field_longMain">Long Main</label>
+                    <input type="number" class="form-control" name="longMain" id="field_longMain"
+                           formControlName="longMain"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="t04JhApp.mesureAnthropo.diamMain" for="field_diamMain">Diam Main</label>
+                    <input type="number" class="form-control" name="diamMain" id="field_diamMain"
+                           formControlName="diamMain"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="t04JhApp.mesureAnthropo.diamBiacromial" for="field_diamBiacromial">Diam Biacromial</label>
+                    <input type="number" class="form-control" name="diamBiacromial" id="field_diamBiacromial"
+                           formControlName="diamBiacromial"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="t04JhApp.mesureAnthropo.diamBicretal" for="field_diamBicretal">Diam Bicretal</label>
+                    <input type="number" class="form-control" name="diamBicretal" id="field_diamBicretal"
+                           formControlName="diamBicretal"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="t04JhApp.mesureAnthropo.diamThorax" for="field_diamThorax">Diam Thorax</label>
+                    <input type="number" class="form-control" name="diamThorax" id="field_diamThorax"
+                           formControlName="diamThorax"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="t04JhApp.mesureAnthropo.circThorax" for="field_circThorax">Circ Thorax</label>
+                    <input type="number" class="form-control" name="circThorax" id="field_circThorax"
+                           formControlName="circThorax"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="t04JhApp.mesureAnthropo.circThoraxInspirant" for="field_circThoraxInspirant">Circ Thorax Inspirant</label>
+                    <input type="number" class="form-control" name="circThoraxInspirant" id="field_circThoraxInspirant"
+                           formControlName="circThoraxInspirant"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="t04JhApp.mesureAnthropo.circThoraxExpirant" for="field_circThoraxExpirant">Circ Thorax Expirant</label>
+                    <input type="number" class="form-control" name="circThoraxExpirant" id="field_circThoraxExpirant"
+                           formControlName="circThoraxExpirant"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="t04JhApp.mesureAnthropo.circBrasContracte" for="field_circBrasContracte">Circ Bras Contracte</label>
+                    <input type="number" class="form-control" name="circBrasContracte" id="field_circBrasContracte"
+                           formControlName="circBrasContracte"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="t04JhApp.mesureAnthropo.circBrasDecontract" for="field_circBrasDecontract">Circ Bras Decontract</label>
+                    <input type="number" class="form-control" name="circBrasDecontract" id="field_circBrasDecontract"
+                           formControlName="circBrasDecontract"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="t04JhApp.mesureAnthropo.circCuisse" for="field_circCuisse">Circ Cuisse</label>
+                    <input type="number" class="form-control" name="circCuisse" id="field_circCuisse"
+                           formControlName="circCuisse"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="t04JhApp.mesureAnthropo.swimer" for="field_swimer">Swimer</label>
+                    <select class="form-control" id="field_swimer" name="swimer" formControlName="swimer">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="swimerOption.id === editForm.get('swimer').value?.id ? editForm.get('swimer').value : swimerOption" *ngFor="let swimerOption of swimers; trackBy: trackSwimerById">{{swimerOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

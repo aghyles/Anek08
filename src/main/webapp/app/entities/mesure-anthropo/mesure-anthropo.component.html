@@ -1,0 +1,113 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="t04JhApp.mesureAnthropo.home.title">Mesure Anthropos</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-mesure-anthropo" [routerLink]="['/mesure-anthropo/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="t04JhApp.mesureAnthropo.home.createLabel">
+            Create a new Mesure Anthropo
+            </span>
+        </button>
+    </h2>
+    <jhi-alert-error></jhi-alert-error>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="mesureAnthropos?.length === 0">
+        <span jhiTranslate="t04JhApp.mesureAnthropo.home.notFound">No mesureAnthropos found</span>
+    </div>
+    <div class="table-responsive" *ngIf="mesureAnthropos?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="date"><span jhiTranslate="t04JhApp.mesureAnthropo.date">Date</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="poids"><span jhiTranslate="t04JhApp.mesureAnthropo.poids">Poids</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="stature"><span jhiTranslate="t04JhApp.mesureAnthropo.stature">Stature</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="tailleAssis"><span jhiTranslate="t04JhApp.mesureAnthropo.tailleAssis">Taille Assis</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="longTronc"><span jhiTranslate="t04JhApp.mesureAnthropo.longTronc">Long Tronc</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="longMembreInferieurs"><span jhiTranslate="t04JhApp.mesureAnthropo.longMembreInferieurs">Long Membre Inferieurs</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="longMembreSuperieur"><span jhiTranslate="t04JhApp.mesureAnthropo.longMembreSuperieur">Long Membre Superieur</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="anvergureBras"><span jhiTranslate="t04JhApp.mesureAnthropo.anvergureBras">Anvergure Bras</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="longBras"><span jhiTranslate="t04JhApp.mesureAnthropo.longBras">Long Bras</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="longJambes"><span jhiTranslate="t04JhApp.mesureAnthropo.longJambes">Long Jambes</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="longPieds"><span jhiTranslate="t04JhApp.mesureAnthropo.longPieds">Long Pieds</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="hauteurPied"><span jhiTranslate="t04JhApp.mesureAnthropo.hauteurPied">Hauteur Pied</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="longMain"><span jhiTranslate="t04JhApp.mesureAnthropo.longMain">Long Main</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="diamMain"><span jhiTranslate="t04JhApp.mesureAnthropo.diamMain">Diam Main</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="diamBiacromial"><span jhiTranslate="t04JhApp.mesureAnthropo.diamBiacromial">Diam Biacromial</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="diamBicretal"><span jhiTranslate="t04JhApp.mesureAnthropo.diamBicretal">Diam Bicretal</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="diamThorax"><span jhiTranslate="t04JhApp.mesureAnthropo.diamThorax">Diam Thorax</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="circThorax"><span jhiTranslate="t04JhApp.mesureAnthropo.circThorax">Circ Thorax</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="circThoraxInspirant"><span jhiTranslate="t04JhApp.mesureAnthropo.circThoraxInspirant">Circ Thorax Inspirant</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="circThoraxExpirant"><span jhiTranslate="t04JhApp.mesureAnthropo.circThoraxExpirant">Circ Thorax Expirant</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="circBrasContracte"><span jhiTranslate="t04JhApp.mesureAnthropo.circBrasContracte">Circ Bras Contracte</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="circBrasDecontract"><span jhiTranslate="t04JhApp.mesureAnthropo.circBrasDecontract">Circ Bras Decontract</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="circCuisse"><span jhiTranslate="t04JhApp.mesureAnthropo.circCuisse">Circ Cuisse</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="swimer.id"><span jhiTranslate="t04JhApp.mesureAnthropo.swimer">Swimer</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let mesureAnthropo of mesureAnthropos ;trackBy: trackId">
+                <td><a [routerLink]="['/mesure-anthropo', mesureAnthropo.id, 'view' ]">{{mesureAnthropo.id}}</a></td>
+                <td>{{mesureAnthropo.date | date:'medium'}}</td>
+                <td>{{mesureAnthropo.poids}}</td>
+                <td>{{mesureAnthropo.stature}}</td>
+                <td>{{mesureAnthropo.tailleAssis}}</td>
+                <td>{{mesureAnthropo.longTronc}}</td>
+                <td>{{mesureAnthropo.longMembreInferieurs}}</td>
+                <td>{{mesureAnthropo.longMembreSuperieur}}</td>
+                <td>{{mesureAnthropo.anvergureBras}}</td>
+                <td>{{mesureAnthropo.longBras}}</td>
+                <td>{{mesureAnthropo.longJambes}}</td>
+                <td>{{mesureAnthropo.longPieds}}</td>
+                <td>{{mesureAnthropo.hauteurPied}}</td>
+                <td>{{mesureAnthropo.longMain}}</td>
+                <td>{{mesureAnthropo.diamMain}}</td>
+                <td>{{mesureAnthropo.diamBiacromial}}</td>
+                <td>{{mesureAnthropo.diamBicretal}}</td>
+                <td>{{mesureAnthropo.diamThorax}}</td>
+                <td>{{mesureAnthropo.circThorax}}</td>
+                <td>{{mesureAnthropo.circThoraxInspirant}}</td>
+                <td>{{mesureAnthropo.circThoraxExpirant}}</td>
+                <td>{{mesureAnthropo.circBrasContracte}}</td>
+                <td>{{mesureAnthropo.circBrasDecontract}}</td>
+                <td>{{mesureAnthropo.circCuisse}}</td>
+                <td>
+                    <div *ngIf="mesureAnthropo.swimer">
+                        <a [routerLink]="['/swimer', mesureAnthropo.swimer?.id, 'view' ]" >{{mesureAnthropo.swimer?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/mesure-anthropo', mesureAnthropo.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/mesure-anthropo', mesureAnthropo.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit" (click)="delete(mesureAnthropo)"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div [hidden]="mesureAnthropos?.length === 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

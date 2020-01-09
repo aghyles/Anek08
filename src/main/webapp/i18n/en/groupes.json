@@ -1,0 +1,24 @@
+{
+  "t04JhApp": {
+    "groupes": {
+      "home": {
+        "title": "Groupe",
+        "createLabel": "Createe a new Groupes",
+        "createOrEditLabel": "Create or edit a Groupes",
+        "notFound": "No Groupes found"
+      },
+      "created": "A new Groupes is created with identifier {{ param }}",
+      "updated": "A Groupes is updated with identifier {{ param }}",
+      "deleted": "A Groupes is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Groupes {{ id }}?"
+      },
+      "detail": {
+        "title": "Groupes"
+      },
+      "groupes": "Groupes",
+      "saison": "Saison",
+      "user": "User"
+    }
+  }
+}

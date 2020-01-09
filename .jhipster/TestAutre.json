@@ -1,0 +1,56 @@
+{
+    "name": "TestAutre",
+    "fields": [
+        {
+            "fieldName": "testTitle",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "obs1",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "obs2",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "obs3",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "obs4",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "obs5",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "obs6",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "obs7",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "ficheTest",
+            "otherEntityRelationshipName": "testAutre",
+            "relationshipName": "ficheTest",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20191220044429",
+    "entityTableName": "test_autre",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

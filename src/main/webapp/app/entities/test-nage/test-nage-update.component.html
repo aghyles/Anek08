@@ -1,0 +1,136 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-test-nage-heading" jhiTranslate="t04JhApp.testNage.home.createOrEditLabel">Create or edit a Test Nage</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="t04JhApp.testNage.testTitle" for="field_testTitle">Test Title</label>
+                    <input type="text" class="form-control" name="testTitle" id="field_testTitle"
+                           formControlName="testTitle"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="t04JhApp.testNage.nl50" for="field_nl50">Nl 50</label>
+                    <input type="number" class="form-control" name="nl50" id="field_nl50"
+                           formControlName="nl50"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="t04JhApp.testNage.nl100" for="field_nl100">Nl 100</label>
+                    <input type="number" class="form-control" name="nl100" id="field_nl100"
+                           formControlName="nl100"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="t04JhApp.testNage.nl200" for="field_nl200">Nl 200</label>
+                    <input type="number" class="form-control" name="nl200" id="field_nl200"
+                           formControlName="nl200"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="t04JhApp.testNage.nl400" for="field_nl400">Nl 400</label>
+                    <input type="number" class="form-control" name="nl400" id="field_nl400"
+                           formControlName="nl400"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="t04JhApp.testNage.nl800" for="field_nl800">Nl 800</label>
+                    <input type="number" class="form-control" name="nl800" id="field_nl800"
+                           formControlName="nl800"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="t04JhApp.testNage.nl1500" for="field_nl1500">Nl 1500</label>
+                    <input type="number" class="form-control" name="nl1500" id="field_nl1500"
+                           formControlName="nl1500"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="t04JhApp.testNage.pap50" for="field_pap50">Pap 50</label>
+                    <input type="number" class="form-control" name="pap50" id="field_pap50"
+                           formControlName="pap50"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="t04JhApp.testNage.pap100" for="field_pap100">Pap 100</label>
+                    <input type="number" class="form-control" name="pap100" id="field_pap100"
+                           formControlName="pap100"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="t04JhApp.testNage.pap200" for="field_pap200">Pap 200</label>
+                    <input type="number" class="form-control" name="pap200" id="field_pap200"
+                           formControlName="pap200"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="t04JhApp.testNage.dos50" for="field_dos50">Dos 50</label>
+                    <input type="number" class="form-control" name="dos50" id="field_dos50"
+                           formControlName="dos50"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="t04JhApp.testNage.dos100" for="field_dos100">Dos 100</label>
+                    <input type="number" class="form-control" name="dos100" id="field_dos100"
+                           formControlName="dos100"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="t04JhApp.testNage.dos200" for="field_dos200">Dos 200</label>
+                    <input type="number" class="form-control" name="dos200" id="field_dos200"
+                           formControlName="dos200"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="t04JhApp.testNage.brasse50" for="field_brasse50">Brasse 50</label>
+                    <input type="number" class="form-control" name="brasse50" id="field_brasse50"
+                           formControlName="brasse50"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="t04JhApp.testNage.brasse100" for="field_brasse100">Brasse 100</label>
+                    <input type="number" class="form-control" name="brasse100" id="field_brasse100"
+                           formControlName="brasse100"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="t04JhApp.testNage.brasse200" for="field_brasse200">Brasse 200</label>
+                    <input type="number" class="form-control" name="brasse200" id="field_brasse200"
+                           formControlName="brasse200"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="t04JhApp.testNage.na4ge100" for="field_na4ge100">Na 4 Ge 100</label>
+                    <input type="number" class="form-control" name="na4ge100" id="field_na4ge100"
+                           formControlName="na4ge100"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="t04JhApp.testNage.na4ge200" for="field_na4ge200">Na 4 Ge 200</label>
+                    <input type="number" class="form-control" name="na4ge200" id="field_na4ge200"
+                           formControlName="na4ge200"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="t04JhApp.testNage.na4ge400" for="field_na4ge400">Na 4 Ge 400</label>
+                    <input type="number" class="form-control" name="na4ge400" id="field_na4ge400"
+                           formControlName="na4ge400"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="t04JhApp.testNage.h1nl" for="field_h1nl">H 1 Nl</label>
+                    <input type="number" class="form-control" name="h1nl" id="field_h1nl"
+                           formControlName="h1nl"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="t04JhApp.testNage.autre" for="field_autre">Autre</label>
+                    <input type="text" class="form-control" name="autre" id="field_autre"
+                           formControlName="autre"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="t04JhApp.testNage.ficheTest" for="field_ficheTest">Fiche Test</label>
+                    <select class="form-control" id="field_ficheTest" name="ficheTest" formControlName="ficheTest">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="ficheTestOption.id === editForm.get('ficheTest').value?.id ? editForm.get('ficheTest').value : ficheTestOption" *ngFor="let ficheTestOption of fichetests; trackBy: trackFicheTestById">{{ficheTestOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

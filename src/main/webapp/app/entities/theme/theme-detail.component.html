@@ -1,0 +1,37 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="theme">
+            <h2><span jhiTranslate="t04JhApp.theme.detail.title">Theme</span> {{theme.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="t04JhApp.theme.themeName">Theme Name</span></dt>
+                <dd>
+                    <span>{{theme.themeName}}</span>
+                </dd>
+                <dt><span jhiTranslate="t04JhApp.theme.description">Description</span></dt>
+                <dd>
+                    <span>{{theme.description}}</span>
+                </dd>
+                <dt><span jhiTranslate="t04JhApp.theme.objectif">Objectif</span></dt>
+                <dd>
+                    <span *ngFor="let objectif of theme.objectifs; let last = last">
+                        <a [routerLink]="['/objectif', objectif?.id, 'view' ]">{{objectif.id}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/theme', theme.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

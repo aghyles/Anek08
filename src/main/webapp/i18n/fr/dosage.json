@@ -1,0 +1,23 @@
+{
+  "t04JhApp": {
+    "dosage": {
+      "home": {
+        "title": "Dosages",
+        "createLabel": "Créer un nouveau Dosage",
+        "createOrEditLabel": "Créer ou éditer un Dosage",
+        "notFound": "Aucun Dosage trouvé"
+      },
+      "created": "Un nouveau Dosage a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Dosage avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Dosage avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Dosage {{ id }} ?"
+      },
+      "detail": {
+        "title": "Dosage"
+      },
+      "dosageS": "Dosage S",
+      "dosagelong": "Dosagelong"
+    }
+  }
+}

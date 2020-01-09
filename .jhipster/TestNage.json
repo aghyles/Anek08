@@ -1,0 +1,108 @@
+{
+    "name": "TestNage",
+    "fields": [
+        {
+            "fieldName": "testTitle",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "nl50",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "nl100",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "nl200",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "nl400",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "nl800",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "nl1500",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "pap50",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "pap100",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "pap200",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "dos50",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "dos100",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "dos200",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "brasse50",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "brasse100",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "brasse200",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "na4ge100",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "na4ge200",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "na4ge400",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "h1nl",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "autre",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "ficheTest",
+            "otherEntityRelationshipName": "testNage",
+            "relationshipName": "ficheTest",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20191220044428",
+    "entityTableName": "test_nage",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,51 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="groupe">
+            <h2><span jhiTranslate="t04JhApp.groupe.detail.title">Groupe</span> {{groupe.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="t04JhApp.groupe.groupeName">Groupe Name</span></dt>
+                <dd>
+                    <span>{{groupe.groupeName}}</span>
+                </dd>
+                <dt><span jhiTranslate="t04JhApp.groupe.startDate">Start Date</span></dt>
+                <dd>
+                    <span>{{groupe.startDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="t04JhApp.groupe.days">Days</span></dt>
+                <dd>
+                    <span>{{groupe.days}}</span>
+                </dd>
+                <dt><span jhiTranslate="t04JhApp.groupe.endDate">End Date</span></dt>
+                <dd>
+                    <span>{{groupe.endDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="t04JhApp.groupe.saison">Saison</span></dt>
+                <dd>
+                    <span>{{groupe.saison}}</span>
+                </dd>
+                <dt><span jhiTranslate="t04JhApp.groupe.category">Category</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'t04JhApp.Category.' + groupe.category}}">{{groupe.category}}</span>
+                </dd>
+                <dt><span jhiTranslate="t04JhApp.groupe.obs">Obs</span></dt>
+                <dd>
+                    <span>{{groupe.obs}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/groupe', groupe.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

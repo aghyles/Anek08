@@ -1,0 +1,37 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="ficheTest">
+            <h2><span jhiTranslate="t04JhApp.ficheTest.detail.title">Fiche Test</span> {{ficheTest.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="t04JhApp.ficheTest.typeTest">Type Test</span></dt>
+                <dd>
+                    <span>{{ficheTest.typeTest}}</span>
+                </dd>
+                <dt><span jhiTranslate="t04JhApp.ficheTest.datetest">Datetest</span></dt>
+                <dd>
+                    <span>{{ficheTest.datetest}}</span>
+                </dd>
+                <dt><span jhiTranslate="t04JhApp.ficheTest.swimer">Swimer</span></dt>
+                <dd>
+                    <div *ngIf="ficheTest.swimer">
+                        <a [routerLink]="['/swimer', ficheTest.swimer?.id, 'view']">{{ficheTest.swimer?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/fiche-test', ficheTest.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

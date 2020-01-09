@@ -1,0 +1,101 @@
+{
+    "name": "Swimer",
+    "fields": [
+        {
+            "fieldName": "licenceNum",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "firstName",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "lastName",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "sexe",
+            "fieldType": "Sexe",
+            "fieldValues": "HOMME,FEMME,AUTRE"
+        },
+        {
+            "fieldName": "bearthday",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "phoneNumber",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "eMail",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "pattern"
+            ],
+            "fieldValidateRulesPattern": "^\\w+([\\.-]?\\w+)*@\\w+([\\.-]?\\w+)*(\\.\\w{2,3})+$"
+        },
+        {
+            "fieldName": "address",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "studyTime",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "firstSwim",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "groupeName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "document",
+            "fieldType": "Long"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "mesureAnthropo",
+            "otherEntityRelationshipName": "swimer",
+            "relationshipName": "mesureAnthropo"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "ficheTest",
+            "otherEntityRelationshipName": "swimer",
+            "relationshipName": "ficheTest"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "document",
+            "otherEntityRelationshipName": "swimer",
+            "relationshipName": "document"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "groupe",
+            "otherEntityRelationshipName": "swimer",
+            "relationshipName": "groupe",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20191220044424",
+    "entityTableName": "swimer",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

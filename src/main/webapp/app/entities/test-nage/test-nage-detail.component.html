@@ -1,0 +1,113 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="testNage">
+            <h2><span jhiTranslate="t04JhApp.testNage.detail.title">Test Nage</span> {{testNage.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="t04JhApp.testNage.testTitle">Test Title</span></dt>
+                <dd>
+                    <span>{{testNage.testTitle}}</span>
+                </dd>
+                <dt><span jhiTranslate="t04JhApp.testNage.nl50">Nl 50</span></dt>
+                <dd>
+                    <span>{{testNage.nl50}}</span>
+                </dd>
+                <dt><span jhiTranslate="t04JhApp.testNage.nl100">Nl 100</span></dt>
+                <dd>
+                    <span>{{testNage.nl100}}</span>
+                </dd>
+                <dt><span jhiTranslate="t04JhApp.testNage.nl200">Nl 200</span></dt>
+                <dd>
+                    <span>{{testNage.nl200}}</span>
+                </dd>
+                <dt><span jhiTranslate="t04JhApp.testNage.nl400">Nl 400</span></dt>
+                <dd>
+                    <span>{{testNage.nl400}}</span>
+                </dd>
+                <dt><span jhiTranslate="t04JhApp.testNage.nl800">Nl 800</span></dt>
+                <dd>
+                    <span>{{testNage.nl800}}</span>
+                </dd>
+                <dt><span jhiTranslate="t04JhApp.testNage.nl1500">Nl 1500</span></dt>
+                <dd>
+                    <span>{{testNage.nl1500}}</span>
+                </dd>
+                <dt><span jhiTranslate="t04JhApp.testNage.pap50">Pap 50</span></dt>
+                <dd>
+                    <span>{{testNage.pap50}}</span>
+                </dd>
+                <dt><span jhiTranslate="t04JhApp.testNage.pap100">Pap 100</span></dt>
+                <dd>
+                    <span>{{testNage.pap100}}</span>
+                </dd>
+                <dt><span jhiTranslate="t04JhApp.testNage.pap200">Pap 200</span></dt>
+                <dd>
+                    <span>{{testNage.pap200}}</span>
+                </dd>
+                <dt><span jhiTranslate="t04JhApp.testNage.dos50">Dos 50</span></dt>
+                <dd>
+                    <span>{{testNage.dos50}}</span>
+                </dd>
+                <dt><span jhiTranslate="t04JhApp.testNage.dos100">Dos 100</span></dt>
+                <dd>
+                    <span>{{testNage.dos100}}</span>
+                </dd>
+                <dt><span jhiTranslate="t04JhApp.testNage.dos200">Dos 200</span></dt>
+                <dd>
+                    <span>{{testNage.dos200}}</span>
+                </dd>
+                <dt><span jhiTranslate="t04JhApp.testNage.brasse50">Brasse 50</span></dt>
+                <dd>
+                    <span>{{testNage.brasse50}}</span>
+                </dd>
+                <dt><span jhiTranslate="t04JhApp.testNage.brasse100">Brasse 100</span></dt>
+                <dd>
+                    <span>{{testNage.brasse100}}</span>
+                </dd>
+                <dt><span jhiTranslate="t04JhApp.testNage.brasse200">Brasse 200</span></dt>
+                <dd>
+                    <span>{{testNage.brasse200}}</span>
+                </dd>
+                <dt><span jhiTranslate="t04JhApp.testNage.na4ge100">Na 4 Ge 100</span></dt>
+                <dd>
+                    <span>{{testNage.na4ge100}}</span>
+                </dd>
+                <dt><span jhiTranslate="t04JhApp.testNage.na4ge200">Na 4 Ge 200</span></dt>
+                <dd>
+                    <span>{{testNage.na4ge200}}</span>
+                </dd>
+                <dt><span jhiTranslate="t04JhApp.testNage.na4ge400">Na 4 Ge 400</span></dt>
+                <dd>
+                    <span>{{testNage.na4ge400}}</span>
+                </dd>
+                <dt><span jhiTranslate="t04JhApp.testNage.h1nl">H 1 Nl</span></dt>
+                <dd>
+                    <span>{{testNage.h1nl}}</span>
+                </dd>
+                <dt><span jhiTranslate="t04JhApp.testNage.autre">Autre</span></dt>
+                <dd>
+                    <span>{{testNage.autre}}</span>
+                </dd>
+                <dt><span jhiTranslate="t04JhApp.testNage.ficheTest">Fiche Test</span></dt>
+                <dd>
+                    <div *ngIf="testNage.ficheTest">
+                        <a [routerLink]="['/fiche-test', testNage.ficheTest?.id, 'view']">{{testNage.ficheTest?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/test-nage', testNage.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

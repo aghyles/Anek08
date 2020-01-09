@@ -1,0 +1,11 @@
+version: '2'
+services:
+  t04jh-postgresql:
+    image: postgres:11.5
+    # volumes:
+    #     - ~/volumes/jhipster/t04jh/postgresql/:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=t04jh
+      - POSTGRES_PASSWORD=
+    ports:
+      - 5432:5432

@@ -1,0 +1,28 @@
+{
+    "name": "Presence",
+    "fields": [
+        {
+            "fieldName": "idNageurAbs",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "ficheSeance",
+            "otherEntityRelationshipName": "presence",
+            "relationshipName": "ficheSeance",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20191220044433",
+    "entityTableName": "presence",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

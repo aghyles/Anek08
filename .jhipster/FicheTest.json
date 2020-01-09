@@ -1,0 +1,68 @@
+{
+    "name": "FicheTest",
+    "fields": [
+        {
+            "fieldName": "typeTest",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "datetest",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "testAutre",
+            "otherEntityRelationshipName": "ficheTest",
+            "relationshipName": "testAutre"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "testEtude",
+            "otherEntityRelationshipName": "ficheTest",
+            "relationshipName": "testEtude"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "testNage",
+            "otherEntityRelationshipName": "ficheTest",
+            "relationshipName": "testNage"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "document",
+            "otherEntityRelationshipName": "ficheTest",
+            "relationshipName": "document"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "testPhysique",
+            "otherEntityRelationshipName": "ficheTest",
+            "relationshipName": "testPhysique"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "swimer",
+            "otherEntityRelationshipName": "ficheTest",
+            "relationshipName": "swimer",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20191220044427",
+    "entityTableName": "fiche_test",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

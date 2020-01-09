@@ -1,0 +1,37 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="objectif">
+            <h2><span jhiTranslate="t04JhApp.objectif.detail.title">Objectif</span> {{objectif.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="t04JhApp.objectif.objectifName">Objectif Name</span></dt>
+                <dd>
+                    <span>{{objectif.objectifName}}</span>
+                </dd>
+                <dt><span jhiTranslate="t04JhApp.objectif.description">Description</span></dt>
+                <dd>
+                    <span>{{objectif.description}}</span>
+                </dd>
+                <dt><span jhiTranslate="t04JhApp.objectif.exercice">Exercice</span></dt>
+                <dd>
+                    <span *ngFor="let exercice of objectif.exercices; let last = last">
+                        <a [routerLink]="['/exercice', exercice?.id, 'view' ]">{{exercice.id}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/objectif', objectif.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

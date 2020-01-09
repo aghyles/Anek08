@@ -1,0 +1,61 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-test-physique-heading" jhiTranslate="t04JhApp.testPhysique.home.createOrEditLabel">Create or edit a Test Physique</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="t04JhApp.testPhysique.testphyTitle" for="field_testphyTitle">Testphy Title</label>
+                    <input type="text" class="form-control" name="testphyTitle" id="field_testphyTitle"
+                           formControlName="testphyTitle"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="t04JhApp.testPhysique.testPhy1" for="field_testPhy1">Test Phy 1</label>
+                    <input type="text" class="form-control" name="testPhy1" id="field_testPhy1"
+                           formControlName="testPhy1"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="t04JhApp.testPhysique.testPhy2" for="field_testPhy2">Test Phy 2</label>
+                    <input type="text" class="form-control" name="testPhy2" id="field_testPhy2"
+                           formControlName="testPhy2"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="t04JhApp.testPhysique.testPhy3" for="field_testPhy3">Test Phy 3</label>
+                    <input type="text" class="form-control" name="testPhy3" id="field_testPhy3"
+                           formControlName="testPhy3"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="t04JhApp.testPhysique.testPhy4" for="field_testPhy4">Test Phy 4</label>
+                    <input type="text" class="form-control" name="testPhy4" id="field_testPhy4"
+                           formControlName="testPhy4"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="t04JhApp.testPhysique.testPhy5" for="field_testPhy5">Test Phy 5</label>
+                    <input type="text" class="form-control" name="testPhy5" id="field_testPhy5"
+                           formControlName="testPhy5"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="t04JhApp.testPhysique.ficheTest" for="field_ficheTest">Fiche Test</label>
+                    <select class="form-control" id="field_ficheTest" name="ficheTest" formControlName="ficheTest">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="ficheTestOption.id === editForm.get('ficheTest').value?.id ? editForm.get('ficheTest').value : ficheTestOption" *ngFor="let ficheTestOption of fichetests; trackBy: trackFicheTestById">{{ficheTestOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

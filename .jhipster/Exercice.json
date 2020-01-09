@@ -1,0 +1,63 @@
+{
+    "name": "Exercice",
+    "fields": [
+        {
+            "fieldName": "exerciceName",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "recomendation",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "docSchema",
+            "fieldType": "Long"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "dosage",
+            "otherEntityRelationshipName": "exercice",
+            "relationshipName": "dosage",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "document",
+            "otherEntityRelationshipName": "exercice",
+            "relationshipName": "document",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "ficheSeance",
+            "otherEntityRelationshipName": "exercice",
+            "relationshipName": "ficheSeance",
+            "otherEntityField": "id",
+            "ownerSide": false
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "objectif",
+            "otherEntityRelationshipName": "exercice",
+            "relationshipName": "objectif",
+            "otherEntityField": "id",
+            "ownerSide": false
+        }
+    ],
+    "changelogDate": "20191220044436",
+    "entityTableName": "exercice",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

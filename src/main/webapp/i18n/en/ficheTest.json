@@ -1,0 +1,29 @@
+{
+  "t04JhApp": {
+    "ficheTest": {
+      "home": {
+        "title": "Fiche Tests",
+        "createLabel": "Create a new Fiche Test",
+        "createOrEditLabel": "Create or edit a Fiche Test",
+        "notFound": "No Fiche Tests found"
+      },
+      "created": "A new Fiche Test is created with identifier {{ param }}",
+      "updated": "A Fiche Test is updated with identifier {{ param }}",
+      "deleted": "A Fiche Test is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Fiche Test {{ id }}?"
+      },
+      "detail": {
+        "title": "Fiche Test"
+      },
+      "typeTest": "Type Test",
+      "datetest": "Datetest",
+      "testAutre": "Test Autre",
+      "testEtude": "Test Etude",
+      "testNage": "Test Nage",
+      "document": "Document",
+      "testPhysique": "Test Physique",
+      "swimer": "Swimer"
+    }
+  }
+}

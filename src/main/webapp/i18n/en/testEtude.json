@@ -1,0 +1,25 @@
+{
+  "t04JhApp": {
+    "testEtude": {
+      "home": {
+        "title": "Test Etudes",
+        "createLabel": "Create a new Test Etude",
+        "createOrEditLabel": "Create or edit a Test Etude",
+        "notFound": "No Test Etudes found"
+      },
+      "created": "A new Test Etude is created with identifier {{ param }}",
+      "updated": "A Test Etude is updated with identifier {{ param }}",
+      "deleted": "A Test Etude is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Test Etude {{ id }}?"
+      },
+      "detail": {
+        "title": "Test Etude"
+      },
+      "testTitle": "Test Title",
+      "levelStudy": "Level Study",
+      "average": "Average",
+      "ficheTest": "Fiche Test"
+    }
+  }
+}

@@ -1,0 +1,69 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="t04JhApp.ficheSeance.home.title">Fiche Seances</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-fiche-seance" [routerLink]="['/fiche-seance/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="t04JhApp.ficheSeance.home.createLabel">
+            Create a new Fiche Seance
+            </span>
+        </button>
+    </h2>
+    <jhi-alert-error></jhi-alert-error>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="ficheSeances?.length === 0">
+        <span jhiTranslate="t04JhApp.ficheSeance.home.notFound">No ficheSeances found</span>
+    </div>
+    <div class="table-responsive" *ngIf="ficheSeances?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
+            <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="ficheSNum"><span jhiTranslate="t04JhApp.ficheSeance.ficheSNum">Fiche S Num</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="date"><span jhiTranslate="t04JhApp.ficheSeance.date">Date</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="observation"><span jhiTranslate="t04JhApp.ficheSeance.observation">Observation</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="volume"><span jhiTranslate="t04JhApp.ficheSeance.volume">Volume</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="bilan"><span jhiTranslate="t04JhApp.ficheSeance.bilan">Bilan</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="groupe.id"><span jhiTranslate="t04JhApp.ficheSeance.groupe">Groupe</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tr *ngFor="let ficheSeance of ficheSeances ;trackBy: trackId">
+                <td><a [routerLink]="['/fiche-seance', ficheSeance.id, 'view' ]">{{ficheSeance.id}}</a></td>
+                <td>{{ficheSeance.ficheSNum}}</td>
+                <td>{{ficheSeance.date | date:'medium'}}</td>
+                <td>{{ficheSeance.observation}}</td>
+                <td>{{ficheSeance.volume}}</td>
+                <td>{{ficheSeance.bilan}}</td>
+                <td>
+                    <div *ngIf="ficheSeance.groupe">
+                        <a [routerLink]="['/groupe', ficheSeance.groupe?.id, 'view' ]" >{{ficheSeance.groupe?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/fiche-seance', ficheSeance.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/fiche-seance', ficheSeance.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit" (click)="delete(ficheSeance)"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

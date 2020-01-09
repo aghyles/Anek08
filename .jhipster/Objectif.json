@@ -1,0 +1,44 @@
+{
+    "name": "Objectif",
+    "fields": [
+        {
+            "fieldName": "objectifName",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "exercice",
+            "otherEntityRelationshipName": "objectif",
+            "relationshipName": "exercice",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "theme",
+            "otherEntityRelationshipName": "objectif",
+            "relationshipName": "theme",
+            "otherEntityField": "id",
+            "ownerSide": false
+        }
+    ],
+    "changelogDate": "20191220044435",
+    "entityTableName": "objectif",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

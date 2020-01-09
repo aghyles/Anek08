@@ -1,0 +1,49 @@
+mat-sidenav-container {
+  height: 100%;
+  min-height: 50em;
+}
+
+
+mat-sidenav-content {
+
+  // padding: 6px;
+}
+
+mat-sidenav {
+}
+.sidebar-link{
+  margin-top: 2em;
+}
+.navbar-header{
+  margin: auto;
+  width: 40%;
+}
+.logo-icon{
+  margin-top: 1em;
+  width: 2em;
+  height: 2.5em;
+}
+
+.sidenavleft {
+  // position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 64px;
+  padding: 0 16px 0 24px;
+  transition: padding 200ms ease;
+  background-color: #393939;
+  width: 15em ;
+}
+.sidenavRight {
+  background-color: #1976d2;
+  max-width: 2em;
+}
+.sidebar-divider {
+  border-top: 2px solid white;
+}
+
+a.nav-link {
+  font-weight: 400;
+  color: white;
+}

@@ -1,0 +1,48 @@
+{
+    "name": "TestPhysique",
+    "fields": [
+        {
+            "fieldName": "testphyTitle",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "testPhy1",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "testPhy2",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "testPhy3",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "testPhy4",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "testPhy5",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "ficheTest",
+            "otherEntityRelationshipName": "testPhysique",
+            "relationshipName": "ficheTest",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20191220044431",
+    "entityTableName": "test_physique",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}
