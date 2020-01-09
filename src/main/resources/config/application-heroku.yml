@@ -12,7 +12,7 @@
 
 eureka:
   instance:
-    hostname: rocky-fjord-39250.herokuapp.com
+    hostname: t-04-jh.herokuapp.com
     non-secure-port: 80
     prefer-ip-address: false
 
