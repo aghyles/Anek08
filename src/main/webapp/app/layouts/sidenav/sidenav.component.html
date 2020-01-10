@@ -2,7 +2,7 @@
 <mat-sidenav-container >
 
 
-        <mat-sidenav   class="sidenavleft"  #sidenav0 mode="side" opened="true" color="primary">
+        <mat-sidenav *ngIf="isAuthenticated()" class="sidenavleft"  #sidenav0 mode="side" opened="true" color="primary">
         <!---------------------------------------------------------------------------------------------->
             <div class="navbar-header" >
 

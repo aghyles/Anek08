@@ -12,19 +12,29 @@
               </ngb-alert>
           </div>
 
+          <div [ngSwitch]="!isAuthenticated()">
+              <div *ngSwitchCase="true">
+                  <ngb-alert (close)="staticAlertClosed = true">
+                     <a  routerLink="/dashboard" >
+                    <span>
+                        Pré-Inscription 2020 Ouverte! ==> Obtenez le formulaire d'inscription en répondant a ce formulaire.
+                    </span>
+                    </a>
+                  </ngb-alert>
+              </div>
 
-        <div class="alert alert-warning" *ngSwitchCase="false">
+        <!--<div class="alert alert-warning" *ngSwitchCase="false">
           <span jhiTranslate="global.messages.info.authenticated.prefix">If you want to </span>
           <a class="alert-link" (click)="login()" jhiTranslate="global.messages.info.authenticated.link">sign in</a
           ><span jhiTranslate="global.messages.info.authenticated.suffix"
             >, you can try the default accounts:<br />- Administrator (login="admin" and password="admin") <br />- User (login="user" and
-            password="user").</span
-          >
+            password="user").</span>
         </div>
+
         <div class="alert alert-warning" *ngSwitchCase="false">
           <span jhiTranslate="global.messages.info.register.noaccount">You don't have an account yet?</span>&nbsp;
           <a class="alert-link" routerLink="account/register" jhiTranslate="global.messages.info.register.link">Register a new account</a>
-        </div>
+        </div>-->
       </div>
 
 
@@ -32,12 +42,27 @@
     <!--     Carousel-->
     <ngb-carousel class="carousel">
         <ng-template ngbSlide>
+
             <div class="picsum-img-wrapper">
-                <img class="img-carousel" src="../../content/images/natation/a.png" alt="Random first slide" />
+                <img routerLink="/dashboard" class="img-carousel" src="../../content/images/natation/z.png" alt="Random first slide" />
             </div>
             <div class="carousel-caption">
-                <h3>Gestionnaire de séances</h3>
-                <p>Conception de programmes et gestion des séances</p>
+
+                <a  routerLink="/dashboard" >
+                    <span>
+                        Nombre de places limitées.
+                    </span>
+                </a>
+            </div>
+        </ng-template>
+        <ng-template ngbSlide>
+
+            <div class="picsum-img-wrapper">
+                <img class="img-carousel" src="../../content/images/natation/d.png" alt="Random first slide" />
+            </div>
+            <div class="carousel-caption">
+                <h3>Entraînement</h3>
+                <p>Conception Planification & Suivi de Séance</p>
             </div>
         </ng-template>
         <ng-template ngbSlide>
@@ -54,21 +79,21 @@
                 <img class="img-carousel" src="../../content/images/natation/c.png" alt="Random third slide" />
             </div>
             <div class="carousel-caption">
-                <h3>Tests et Évaluation</h3>
-                <p>Gérez tous vos tests et programmes d’évaluations comme jamais auparavant</p>
+                <h3>Statistiques Analytiques</h3>
+                <p>Tests & Évaluation. Analysez l'Evolution / Progression.</p>
             </div>
         </ng-template>
     </ngb-carousel>
     <!--     Carousel-->
 
   <div class="jumbotron text-center">
-    <span id="logo"></span>
+    <span id="logo"></span><h3>
       <p>La progression physique et technique est conditionnée par le temps passé à l’entraînement. Il faut donc s’entraîner toujours plus et mieux pour tendre vers le haut niveau et y rester.
       </p>
       <p>Toutefois pour comprendre les effets de l’entraînement sur les sportifs et leur éviter de tomber dans le surentraînement ou de se blesser, il est pertinent de mettre en place un suivi individuel et quotidien.
       </p>
       <p>Se pose alors la question des marqueurs à sélectionner et des outils à utiliser. Le choix des marqueurs perceptifs est très intéressant car ils sont très simple à récolter en routine quotidienne et ont un caractère systémique qui représente de véritables atouts dans le contrôle des effets de la charge d’entraînement. Pour les outils, les nouvelles technologies que sont smartphones et tablettes permettent de créer toutes sortes de supports informatiques comme les web-applications par exemple.
-     </p>
+     </p></h3>
   </div>
 
   <div class="container-fluid text-center">
