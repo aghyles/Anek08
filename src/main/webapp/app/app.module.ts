@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-
 import './vendor';
 import { T04JhSharedModule } from 'app/shared/shared.module';
 import { T04JhCoreModule } from 'app/core/core.module';
@@ -20,15 +19,13 @@ import { PageRibbonComponent } from './layouts/profiles/page-ribbon.component';
 import { ActiveMenuDirective } from './layouts/sidenav/navbar/active-menu.directive';
 import { ErrorComponent } from './layouts/error/error.component';
 import { T04JhDashboardModule } from 'app/Pages/dashboard/dashboard.module';
-import {MaterialModule} from "app/material.module";
-import {SpeedDialFabComponent} from "app/layouts/speeddialfab/speed-dial-fab.component";
-import {OverlayModule} from "@angular/cdk/overlay";
-import {CookieService} from "ngx-cookie-service";
-import {CalendarModule} from "app/calendar/calendar.module";
-import {T04JhDashboard2Module} from "app/Pages/dashboard2/dashboard.module";
+import { MaterialModule } from 'app/material.module';
+import { SpeedDialFabComponent } from 'app/layouts/speeddialfab/speed-dial-fab.component';
+import { OverlayModule } from '@angular/cdk/overlay';
+import { CookieService } from 'ngx-cookie-service';
+import { CalendarModule } from 'app/calendar/calendar.module';
+import { T04JhDashboard2Module } from 'app/Pages/dashboard2/dashboard.module';
 import { T04JhEntityUiModule } from 'app/Pages/entityUi/entityUi.module';
-import { FuseNavigationModule } from '@fuse/components';
-import { FuseNavigationComponent } from '@fuse/components/navigation/navigation.component';
 //  import { FullCalendarModule } from '@fullcalendar/angular'; // for FullCalendar!
 
 @NgModule({
@@ -58,9 +55,9 @@ import { FuseNavigationComponent } from '@fuse/components/navigation/navigation.
     ErrorComponent,
     PageRibbonComponent,
     ActiveMenuDirective,
-    FooterComponent,
+    FooterComponent
   ],
   bootstrap: [JhiMainComponent],
-  providers: [ CookieService ]
+  providers: [CookieService]
 })
 export class T04JhAppModule {}
