@@ -4,11 +4,7 @@
             <h2 id="jhi-swimer-heading" jhiTranslate="t04JhApp.swimer.home.createOrEditLabel">Create or edit a Swimer</h2>
             <div>
                 <jhi-alert-error></jhi-alert-error>
-                <div class="form-group" [hidden]="!editForm.get('id').value">
-                    <label for="id" jhiTranslate="global.field.id">ID</label>
-                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
-                        readonly />
-                </div>
+
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="t04JhApp.swimer.licenceNum" for="field_licenceNum">Licence Num</label>
                     <input type="text" class="form-control" name="licenceNum" id="field_licenceNum"

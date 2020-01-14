@@ -3,91 +3,114 @@
 <section id="page-container">
 
     <!------------------------------------------------------------------>
-    <div class="parallax"></div>
-    <!------------------------------------------------------------------>
-    <div class="example-box" cdkDrag>
-        <p>Fiche de Séance n°99 du 22/11/2019</p>
-        <div class="form-container">
-            <mat-form-field>
-                <input matInput placeholder="Humeur, fait Divers ++"/>
-            </mat-form-field>
-
-
-            <mat-form-field>
-                <mat-select placeholder="Theme" multiple>
-                    <mat-option value="Objectif">Option</mat-option>
-                    <mat-option value="option">Option1</mat-option>
-                    <mat-option value="option">Option2</mat-option>
-                    <mat-option value="option">Option3</mat-option>
-                    <mat-option value="option">Option4</mat-option>
-                    <mat-option value="option">Option5</mat-option>
-                </mat-select>
-
-            </mat-form-field>
-            <mat-form-field>
-                <mat-select placeholder="Objectifs" multiple>
-                    <mat-option value="option">Option</mat-option>
-                    <mat-option value="option">Option1</mat-option>
-                    <mat-option value="option">Option2</mat-option>
-                    <mat-option value="option">Option3</mat-option>
-                    <mat-option value="option">Option4</mat-option>
-                    <mat-option value="option">Option5</mat-option>
-                </mat-select>
-            </mat-form-field>
-            <mat-form-field>
-                <mat-select placeholder="Echauffement" multiple>
-                    <mat-option value="option">Option</mat-option>
-                    <mat-option value="option">Option1</mat-option>
-                    <mat-option value="option">Option2</mat-option>
-                    <mat-option value="option">Option3</mat-option>
-                    <mat-option value="option">Option4</mat-option>
-                    <mat-option value="option">Option5</mat-option>
-                </mat-select>
-            </mat-form-field>
-            <mat-form-field>
-                <mat-select placeholder="Corps de Séance" multiple>
-                    <mat-option value="option">Option</mat-option>
-                    <mat-option value="option">Option1</mat-option>
-                    <mat-option value="option">Option2</mat-option>
-                    <mat-option value="option">Option3</mat-option>
-                    <mat-option value="option">Option4</mat-option>
-                    <mat-option value="option">Option5</mat-option>
-                </mat-select>
-            </mat-form-field>
-            <mat-form-field>
-                <mat-select placeholder="Récupération" multiple>
-                    <mat-option value="option">Option</mat-option>
-                    <mat-option value="option">Option1</mat-option>
-                    <mat-option value="option">Option2</mat-option>
-                    <mat-option value="option">Option3</mat-option>
-                    <mat-option value="option">Option4</mat-option>
-                    <mat-option value="option">Option5</mat-option>
-                </mat-select>
-            </mat-form-field>
-            <mat-form-field>
-                <textarea matInput placeholder="Bilan"></textarea>
-            </mat-form-field>
-            <div >
-            <button type="button"  class="btn btn-primary">Cancel</button>
-            <button type="button"  class="btn btn-primary">Save</button>
-            </div>
-            </div>
-    </div>
-
-
-
-    <!--------------------------------------------------------------->
-    <div class="parallax"></div>
-
-    <!--------------------------------------------------------------->
-
-    <!--------------------------------------------------------------->
-    <div class="example-box" cdkDrag>
-        <!-- 1. inline datepicker -->
-        <ngb-datepicker #d></ngb-datepicker>
-
-    </div>
+    <div class="parallax"><br><br><br><br><br>
+        <h3 style = "text-align:center; color:white;"    >Veuillez compléter ce formulaire afin de réserver votre place et de telecharger le Formulaire papier</h3></div>
     <!------------------------------------------------------------------>
 
-    <!--------------------------------------------------------------------------->
+    <div *ngIf="preReussi">
+        <br><br>
+        <ngb-alert (close)="staticAlertClosed = true">
+            <a  routerLink="/dashboard2" >
+                    <span>
+                        Merci pour votre interet, vous pouvez télécharger le formulaire finale en cliquant ici
+                        nous allons vous contacté dans les plus bref delai.
+                    </span>
+            </a>
+        </ngb-alert>
+    </div>
+    <div *ngIf="preEchec">
+
+        <ngb-alert (close)="staticAlertClosed = true">
+            <a  routerLink="/dashboard2" >
+                    <span>
+                        Merci pour votre interet, nous somme désolée de ne donnée suite a votre inscription l'age maximum ou minimum de l'enfant ne satisfait pas au exigence!
+                        pour plus d'information vous pouvez nous joindre au numéro: 06 75 91 40 26
+                    </span>
+            </a>
+        </ngb-alert>
+    </div>
+            <!-------------------------------->
+            <div class="fom-pre-inscription row justify-content-center">
+                <div class="col-8">
+                    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+                        <h2 id="jhi-swimer-heading" ></h2>
+                        <div>
+                            <jhi-alert-error></jhi-alert-error>
+
+                            <div class="form-group" [hidden]="!editForm.get('id').value">
+                                <label for="id" jhiTranslate="global.field.id">ID</label>
+                                <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                                       readonly />
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-control-label"  for="field_lastName">Nom</label>
+                                <input type="text" class="form-control" name="lastName" id="field_lastName"
+                                       formControlName="lastName"/>
+                                <div *ngIf="editForm.get('lastName').invalid && (editForm.get('lastName').dirty || editForm.get('lastName').touched)">
+                                    <small class="form-text text-danger"
+                                           *ngIf="editForm.get('lastName').errors.required" jhiTranslate="entity.validation.required">
+                                        This field is required.
+                                    </small>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-control-label"  for="field_firstName">Prénom</label>
+                                <input type="text" class="form-control" name="firstName" id="field_firstName"
+                                       formControlName="firstName"/>
+                                <div *ngIf="editForm.get('firstName').invalid && (editForm.get('firstName').dirty || editForm.get('firstName').touched)">
+                                    <small class="form-text text-danger"
+                                           *ngIf="editForm.get('firstName').errors.required" >
+                                        This field is required.
+                                    </small>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label class="form-control-label"  for="field_bearthday">Date de Naissance</label>
+                                <div class="d-flex">
+                                    <input id="field_bearthday" type="date" class="form-control" name="bearthday" formControlName="bearthday" placeholder="YYYY-MM-DD HH:mm"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-control-label"  for="field_phoneNumber">Numéro de télephone</label>
+                                <input type="text" class="form-control" name="phoneNumber" id="field_phoneNumber"
+                                       formControlName="phoneNumber"/>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-control-label"  for="field_address">Address</label>
+                                <input type="text" class="form-control" name="address" id="field_address"
+                                       formControlName="address"/>
+                            </div>
+
+                        </div>
+
+                            <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                                <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span >Annuler</span>
+                            </button>
+                            <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                                <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span >Enregistrer</span>
+                            </button>
+
+                    </form>
+                </div>
+            </div>
+
+            <!-------------------------------->
+
+
+
+
+
+
+    <!--------------------------------------------------------------->
+    <div class="parallax"></div>
+
+    <!--------------------------------------------------------------->
+
 </section>
+
+
