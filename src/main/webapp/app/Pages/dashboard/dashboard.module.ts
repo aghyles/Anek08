@@ -6,7 +6,7 @@ import { DASHBOARD_ROUTE } from './dashboard.route';
 import { DashboardComponent } from './dashboard.component';
 
 @NgModule({
-  imports: [T04JhSharedModule, RouterModule.forRoot([DASHBOARD_ROUTE], { useHash: true })],
+  imports: [T04JhSharedModule, RouterModule.forRoot([DASHBOARD_ROUTE], { useHash: false })],
   declarations: [DashboardComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

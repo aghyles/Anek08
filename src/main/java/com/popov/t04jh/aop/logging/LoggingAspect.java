@@ -29,6 +29,7 @@ public class LoggingAspect {
 
     public LoggingAspect(Environment env) {
         this.env = env;
+        log.error("Exceptionnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn");
     }
 
     /**

@@ -17,26 +17,23 @@ import { FuseConfirmDialogModule } from '@fuse/components';
 import { CalendarComponent } from 'app/calendar/calendar.component';
 import { CalendarService } from 'app/calendar/calendar.service';
 import { CalendarEventFormDialogComponent } from 'app/calendar/event-form/event-form.component';
-import {JhMaterialModule} from "app/shared/jh-material.module";
+import { JhMaterialModule } from 'app/shared/jh-material.module';
 import { T04JhGroupeModule } from 'app/entities/groupe/groupe.module';
-
+import { T04JhSharedModule } from 'app/shared/shared.module';
 
 const routes: Routes = [
-    {
-        path     : 'calendar',
-        component: CalendarComponent,
-        children : [],
-        resolve  : {
-            chat: CalendarService
-        }
+  {
+    path: 'calendar',
+    component: CalendarComponent,
+    children: [],
+    resolve: {
+      chat: CalendarService
     }
+  }
 ];
 
 @NgModule({
-  declarations: [
-    CalendarComponent,
-    CalendarEventFormDialogComponent
-  ],
+  declarations: [CalendarComponent, CalendarEventFormDialogComponent],
   imports: [
     RouterModule.forChild(routes),
     MatButtonModule,
@@ -56,18 +53,11 @@ const routes: Routes = [
     FuseSharedModule,
     FuseConfirmDialogModule,
     JhMaterialModule,
-    T04JhGroupeModule
+    T04JhGroupeModule,
+    T04JhSharedModule
   ],
-  providers: [
-    CalendarService
-  ],
-  exports: [
-    CalendarComponent
-  ],
-  entryComponents: [
-    CalendarEventFormDialogComponent
-  ]
+  providers: [CalendarService],
+  exports: [CalendarComponent],
+  entryComponents: [CalendarEventFormDialogComponent]
 })
-export class CalendarModule
-{
-}
+export class CalendarModule {}

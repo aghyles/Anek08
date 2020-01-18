@@ -145,6 +145,7 @@ export class DashboardComponent implements OnInit {
 
   protected onSaveError() {
     this.isSaving = false;
+    this.preReussi = false;
   }
   protected onError(errorMessage: string) {
     this.jhiAlertService.error(errorMessage, null, null);

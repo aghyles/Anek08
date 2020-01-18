@@ -10,7 +10,7 @@
     <div *ngIf="preReussi">
         <br><br>
         <ngb-alert (close)="staticAlertClosed = true">
-            <a  routerLink="/dashboard2" >
+            <a  href="content/document/FICHE-ANEK.pdf" download>
                     <span>
                         Merci pour votre interet, vous pouvez télécharger le formulaire finale en cliquant ici
                         nous allons vous contacté dans les plus bref delai.
@@ -71,7 +71,7 @@
                             <div class="form-group">
                                 <label class="form-control-label"  for="field_bearthday">Date de Naissance</label>
                                 <div class="d-flex">
-                                    <input id="field_bearthday" type="date" class="form-control" name="bearthday" formControlName="bearthday" placeholder="YYYY-MM-DD HH:mm"/>
+                                    <input id="field_bearthday" type="date" class="form-control" name="bearthday" formControlName="bearthday" placeholder="YYYY-MM-DD"/>
                                 </div>
                             </div>
                             <div class="form-group">

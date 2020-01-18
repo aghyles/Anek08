@@ -37,31 +37,6 @@
                     </a>
                 </li>
                 <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-                    <a class="nav-link" routerLink="/dashboard" >
-                    <span>
-                        <fa-icon icon="chart-line"></fa-icon>
-                        <span >Pré Inscription</span>
-                    </span>
-                    </a>
-                </li>
-
-                <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-                    <a class="nav-link" routerLink="/dashboard2" >
-                    <span>
-                        <fa-icon icon="chart-line"></fa-icon>
-                        <span jhiTranslate="global.menu.planning">Planning</span>
-                    </span>
-                    </a>
-                </li>
-                <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-                    <a class="nav-link" routerLink="/dashboard2" >
-                    <span>
-                        <fa-icon icon="chart-line"></fa-icon>
-                        <span >Calendrier Sportif</span>
-                    </span>
-                    </a>
-                </li>
-                <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
                     <a class="nav-link" routerLink="/entityUi" >
                     <span>
                         <fa-icon icon="chart-line"></fa-icon>
@@ -69,6 +44,7 @@
                     </span>
                     </a>
                 </li>
+
                 <!-- jhipster-needle-add-element-to-menu - JHipster will add new menu items here -->
                 <div class="sidebar-divider my-0"></div>
                 <!-- Custom Application Name = Suivi Athlète -->
@@ -123,14 +99,40 @@
                             </a>
                         </li>
 
-
-
-
-
                         <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
                     </ul>
                 </li>
                 <div class="sidebar-divider"></div>
+
+                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+                <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                    <a class="nav-link" routerLink="/dashboard" >
+                    <span>
+                        <fa-icon icon="chart-line"></fa-icon>
+                        <span >Pré Inscription</span>
+                    </span>
+                    </a>
+                </li>
+
+                <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                    <a class="nav-link" routerLink="/dashboard2" >
+                    <span>
+                        <fa-icon icon="chart-line"></fa-icon>
+                        <span jhiTranslate="global.menu.planning">Planning</span>
+                    </span>
+                    </a>
+                </li>
+                <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                    <a class="nav-link" routerLink="/dashboard2" >
+                    <span>
+                        <fa-icon icon="chart-line"></fa-icon>
+                        <span >Calendrier Sportif</span>
+                    </span>
+                    </a>
+                </li>
+
+
                 <!-- -->
                 <li *jhiHasAnyAuthority="'ROLE_ADMIN'" ngbDropdown class="nav-item dropdown pointer" display="dynamic" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
                     <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="entity-menu">
