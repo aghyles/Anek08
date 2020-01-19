@@ -27,7 +27,7 @@ export class DashboardComponent implements OnInit {
     firstName: [null, [Validators.required]],
     lastName: [null, [Validators.required]],
     sexe: [],
-    bearthday: [],
+    bearthday: [null, [Validators.required]],
     phoneNumber: [],
     eMail: [null, [Validators.pattern('^w+([.-]?w+)*@w+([.-]?w+)*(.w{2,3})+$')]],
     address: [],
@@ -127,7 +127,7 @@ export class DashboardComponent implements OnInit {
       studyTime: this.editForm.get(['studyTime']).value,
       firstSwim:
         this.editForm.get(['firstSwim']).value != null ? moment(this.editForm.get(['firstSwim']).value, DATE_TIME_FORMAT) : undefined,
-      groupeName: this.editForm.get(['groupeName']).value,
+      groupeName: 'Pré Inscription',
       document: this.editForm.get(['document']).value,
       groupe: this.editForm.get(['groupe']).value
     };
