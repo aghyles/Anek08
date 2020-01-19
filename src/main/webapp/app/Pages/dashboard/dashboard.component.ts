@@ -84,7 +84,7 @@ export class DashboardComponent implements OnInit {
   save() {
     this.isSaving = true;
     const swimer = this.createFromForm();
-
+    this.ngOnInit();
     // eslint-disable-next-line no-console
     console.log('Event clicked zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz');
     if (swimer.id !== undefined && swimer.id !== null) {
@@ -98,11 +98,11 @@ export class DashboardComponent implements OnInit {
         console.log('Event clicked aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa');
         this.subscribeToSaveResponse(this.swimerService.create(swimer));
         this.preReussi = true;
-        this.preEchec = false;
+        // this.preEchec = false;
         // eslint-disable-next-line no-console
         console.log('Event clicked bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb');
       } else {
-        this.preReussi = false;
+        // this.preReussi = false;
         this.preEchec = true;
         // eslint-disable-next-line no-console
         console.log('Event clicked nonnnnnnnn');
@@ -139,7 +139,6 @@ export class DashboardComponent implements OnInit {
 
   protected onSaveSuccess() {
     this.isSaving = false;
-    this.preReussi = true;
     // this.previousState();
   }
 
